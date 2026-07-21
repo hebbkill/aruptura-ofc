@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A Ruptura — Hebber Magalhães</title>
+<meta name="description" content="Um treinamento de mentalidade para sair do automático e voltar a conduzir a própria vida. Livro + aulas + caderno.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#000000;
+  --surface:#0D0B09;
+  --surface-2:#141110;
+  --fg:#F7F5F2;
+  --fg-muted:#A8A29C;
+  --fg-dim:#6E6862;
+  --ember:#FF8A3D;
+  --ember-hot:#FFB25C;
+  --coral:#FF4D4D;
+  --grad-text:linear-gradient(100deg,#FF7A59 0%,#FF4D4D 55%,#E8442E 100%);
+  --grad-btn:linear-gradient(95deg,#FFB25C 0%,#FF8A3D 45%,#FF5C33 100%);
+  --border-warm:rgba(255,138,61,.18);
+  --border-warm-2:rgba(255,138,61,.32);
+  --glow:rgba(255,122,61,.14);
+  --radius:24px;
+  --radius-lg:36px;
+  --font-display:'Archivo',sans-serif;
+  --font-body:'Inter',sans-serif;
+  --space-1:8px;--space-2:16px;--space-3:24px;--space-4:32px;
+  --space-5:48px;--space-6:64px;--space-7:96px;--space-8:140px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--fg);
+  font-family:var(--font-body);
+  font-size:17px;line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);
+  background-size:72px 72px;
+}
+::selection{background:var(--coral);color:#fff}
+img{max-width:100%;display:block}
+a{color:inherit}
+main,header,section,footer,nav,div.marquee{position:relative;z-index:1}
+
+.container{max-width:1160px;margin:0 auto;padding:0 24px}
+.container-narrow{max-width:780px;margin:0 auto;padding:0 24px}
+
+/* ---------- Tipografia ---------- */
+h1,h2{
+  font-family:var(--font-display);
+  font-weight:800;text-transform:uppercase;
+  line-height:1.02;letter-spacing:-.015em;
+}
+h1{font-size:clamp(2.5rem,7vw,5rem);font-weight:900}
+h2{font-size:clamp(1.8rem,4.2vw,3rem)}
+h3{font-family:var(--font-display);font-weight:700;font-size:clamp(1.02rem,1.7vw,1.22rem);line-height:1.25}
+.grad-word{
+  background:var(--grad-text);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+}
+.eyebrow{
+  display:flex;align-items:center;gap:14px;
+  font-family:var(--font-display);
+  font-size:.74rem;font-weight:600;letter-spacing:.32em;text-transform:uppercase;
+  color:var(--ember);margin-bottom:var(--space-4);
+}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--ember)}
+.eyebrow.center{justify-content:center}
+.eyebrow.center::after{content:"";width:34px;height:1px;background:var(--ember)}
+.lead{font-size:clamp(1.02rem,1.7vw,1.2rem);color:var(--fg-muted)}
+strong{color:var(--fg);font-weight:600}
+
+/* ---------- Navbar ---------- */
+.nav{
+  position:fixed;top:18px;left:50%;transform:translateX(-50%);
+  z-index:100;width:min(calc(100% - 32px),680px);
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  background:rgba(10,9,8,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:999px;padding:10px 12px 10px 24px;
+}
+.nav-brand{
+  font-family:var(--font-display);font-weight:800;font-size:.92rem;
+  letter-spacing:.22em;text-transform:uppercase;text-decoration:none;
+}
+.nav-brand span{color:var(--ember)}
+.nav-cta{
+  font-family:var(--font-display);font-weight:700;font-size:.78rem;
+  letter-spacing:.14em;text-transform:uppercase;text-decoration:none;
+  background:var(--grad-btn);color:#1A0E05;
+  padding:12px 22px;border-radius:999px;
+  transition:transform .2s ease,box-shadow .2s ease;
+  min-height:44px;display:inline-flex;align-items:center;
+}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(255,138,61,.4)}
+
+/* ---------- Botões ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:12px;
+  font-family:var(--font-display);font-weight:700;font-size:.95rem;
+  letter-spacing:.1em;text-transform:uppercase;text-decoration:none;
+  background:var(--grad-btn);color:#1A0E05;
+  padding:20px 42px;border-radius:999px;border:none;cursor:pointer;
+  transition:transform .2s ease,box-shadow .25s ease;
+  box-shadow:0 10px 40px rgba(255,110,50,.35);
+  min-height:44px;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 16px 56px rgba(255,110,50,.55)}
+.btn:focus-visible{outline:3px solid var(--ember-hot);outline-offset:3px}
+.btn svg{width:19px;height:19px;flex-shrink:0}
+.btn-ghost{
+  background:transparent;color:var(--fg);
+  border:1px solid rgba(255,255,255,.16);box-shadow:none;
+}
+.btn-ghost:hover{border-color:var(--border-warm-2);box-shadow:0 8px 32px rgba(255,110,50,.15)}
+.btn-note{margin-top:var(--space-3);font-size:.85rem;color:var(--fg-dim);display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap}
+.btn-note svg{width:15px;height:15px;color:var(--ember)}
+
+/* ---------- Seções ---------- */
+section{padding:var(--space-7) 0}
+@media(min-width:768px){section{padding:var(--space-8) 0}}
+
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .marquee-track{animation:none!important}
+}
+
+/* ---------- HERO ---------- */
+.hero{
+  min-height:100dvh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:150px 0 var(--space-7);
+  position:relative;overflow:hidden;
+}
+.hero-glow{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 55% 42% at 78% 30%,rgba(255,138,61,.22),transparent 68%),
+    radial-gradient(ellipse 40% 34% at 72% 55%,rgba(255,77,77,.12),transparent 70%);
+}
+.hero .container{position:relative}
+.hero h1{max-width:15ch;margin-bottom:var(--space-4)}
+.hero .lead{max-width:540px;margin-bottom:var(--space-5)}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.hero-note{margin-top:var(--space-3);font-size:.85rem;color:var(--fg-dim);display:flex;align-items:center;gap:8px}
+.hero-note svg{width:15px;height:15px;color:var(--ember)}
+
+/* ---------- MARQUEE ---------- */
+.marquee{
+  border-top:1px solid rgba(255,255,255,.07);border-bottom:1px solid rgba(255,255,255,.07);
+  overflow:hidden;padding:20px 0;white-space:nowrap;
+  background:rgba(13,11,9,.6);
+}
+.marquee-track{
+  display:inline-block;animation:scroll 30s linear infinite;
+  font-family:var(--font-display);font-weight:700;font-size:.82rem;
+  letter-spacing:.3em;color:var(--fg-dim);text-transform:uppercase;
+}
+.marquee-track span{margin:0 20px}
+.marquee-track .dot{color:var(--ember)}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ---------- DORES (cards) ---------- */
+.pain-grid{display:grid;gap:var(--space-2);margin-top:var(--space-5)}
+@media(min-width:680px){.pain-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.pain-grid{grid-template-columns:repeat(3,1fr)}}
+.pain-card{
+  background:var(--surface);border:1px solid var(--border-warm);
+  border-radius:var(--radius);padding:28px;
+  transition:border-color .25s ease,transform .25s ease;
+}
+.pain-card:hover{border-color:var(--border-warm-2);transform:translateY(-4px)}
+.pain-card h3{margin-bottom:10px}
+.pain-card p{color:var(--fg-muted);font-size:.95rem}
+.pain-close{
+  margin-top:var(--space-5);
+  font-family:var(--font-display);font-weight:800;text-transform:uppercase;
+  font-size:clamp(1.3rem,3vw,2.1rem);line-height:1.15;
+}
+
+/* ---------- MÉTODO ---------- */
+.method-grid{display:grid;gap:var(--space-3);margin-top:var(--space-6)}
+@media(min-width:820px){.method-grid{grid-template-columns:repeat(3,1fr)}}
+.method-card{
+  background:var(--surface);border:1px solid var(--border-warm);
+  border-radius:var(--radius-lg);padding:var(--space-5) var(--space-4);
+  transition:border-color .3s ease,transform .3s ease,box-shadow .3s ease;
+  position:relative;overflow:hidden;
+}
+.method-card::after{
+  content:"";position:absolute;top:0;left:0;right:0;height:180px;
+  background:radial-gradient(ellipse 90% 100% at 50% -40%,var(--glow),transparent 70%);
+  pointer-events:none;
+}
+.method-card:hover{border-color:var(--border-warm-2);transform:translateY(-6px);box-shadow:0 24px 64px rgba(255,110,50,.12)}
+.method-num{
+  font-family:var(--font-display);font-weight:800;font-size:.9rem;
+  letter-spacing:.2em;color:var(--ember);margin-bottom:var(--space-3);display:block;
+}
+.method-card h3{margin-bottom:14px;text-transform:uppercase}
+.method-card p{color:var(--fg-muted);font-size:.95rem}
+.method-close{
+  text-align:center;margin-top:var(--space-6);
+  font-family:var(--font-display);font-weight:800;text-transform:uppercase;
+  font-size:clamp(1.2rem,2.6vw,1.8rem);line-height:1.2;
+}
+
+/* ---------- PARTES ---------- */
+.parts-grid{display:grid;gap:var(--space-2);margin-top:var(--space-5)}
+@media(min-width:768px){.parts-grid{grid-template-columns:repeat(3,1fr)}}
+.part-card{
+  background:rgba(13,11,9,.7);border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--radius);padding:var(--space-4);
+}
+.part-card .part-label{
+  font-family:var(--font-display);font-weight:700;font-size:.72rem;
+  letter-spacing:.26em;text-transform:uppercase;color:var(--ember);
+  display:block;margin-bottom:10px;
+}
+.part-card h3{margin-bottom:10px;text-transform:uppercase}
+.part-card p{color:var(--fg-muted);font-size:.92rem}
+
+/* ---------- 10 RUPTURAS ---------- */
+.rupturas-wrap{
+  background:var(--surface);
+  border:1px solid var(--border-warm);
+  border-radius:var(--radius-lg);
+  padding:var(--space-5) var(--space-4);
+  margin-top:var(--space-5);
+  position:relative;overflow:hidden;
+}
+@media(min-width:768px){.rupturas-wrap{padding:var(--space-6)}}
+.rupturas-wrap::before{
+  content:"";position:absolute;top:-120px;left:50%;transform:translateX(-50%);
+  width:70%;height:260px;
+  background:radial-gradient(ellipse,var(--glow),transparent 70%);
+  pointer-events:none;
+}
+.ruptura-item{
+  display:grid;grid-template-columns:70px 1fr;gap:20px;
+  padding:24px 0;border-bottom:1px solid rgba(255,255,255,.06);
+  align-items:baseline;position:relative;
+}
+.ruptura-item:last-child{border-bottom:none}
+.ruptura-num{
+  font-family:var(--font-display);font-weight:900;font-size:1.7rem;
+  background:var(--grad-text);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.ruptura-item h3{margin-bottom:4px;text-transform:uppercase;letter-spacing:.02em}
+.ruptura-item .ref{
+  font-family:var(--font-display);font-weight:600;font-size:.7rem;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--fg-dim);
+  display:block;margin-bottom:6px;
+}
+.ruptura-item p{color:var(--fg-muted);font-size:.94rem}
+@media(max-width:520px){.ruptura-item{grid-template-columns:50px 1fr;gap:14px}}
+
+/* ---------- PARA QUEM É ---------- */
+.forwho-grid{display:grid;gap:var(--space-3);margin-top:var(--space-6)}
+@media(min-width:880px){.forwho-grid{grid-template-columns:1.25fr 1fr}}
+.forwho-card{
+  border-radius:var(--radius-lg);padding:var(--space-5) var(--space-4);
+  border:1px solid rgba(255,255,255,.08);background:var(--surface);
+}
+.forwho-card.yes{border-color:var(--border-warm-2);box-shadow:0 0 60px rgba(255,110,50,.08)}
+.forwho-card h3{margin-bottom:var(--space-4);text-transform:uppercase}
+.forwho-card ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+.forwho-card li{display:flex;gap:14px;align-items:flex-start;color:var(--fg-muted);font-size:.97rem}
+.forwho-card li svg{width:20px;height:20px;flex-shrink:0;margin-top:4px}
+.forwho-card.yes li svg{color:var(--ember)}
+.forwho-card.no li svg{color:var(--fg-dim)}
+
+/* ---------- AUTOR ---------- */
+.author-wrap{
+  background:var(--surface);border:1px solid var(--border-warm);
+  border-radius:var(--radius-lg);padding:var(--space-5) var(--space-4);
+  display:grid;gap:var(--space-5);align-items:start;
+  position:relative;overflow:hidden;
+}
+@media(min-width:880px){.author-wrap{grid-template-columns:360px 1fr;padding:var(--space-6)}}
+.author-wrap::after{
+  content:"";position:absolute;bottom:-160px;right:-100px;
+  width:480px;height:400px;
+  background:radial-gradient(ellipse,var(--glow),transparent 70%);
+  pointer-events:none;
+}
+.author-photo{
+  aspect-ratio:4/5;border-radius:var(--radius);
+  background:linear-gradient(160deg,var(--surface-2),#000);
+  border:1px solid var(--border-warm);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--fg-dim);font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;
+  text-align:center;padding:20px;
+  position:sticky;top:100px;
+}
+.author-text{position:relative;z-index:1}
+.author-text p{color:var(--fg-muted);margin-bottom:var(--space-2)}
+.author-quote{
+  margin-top:var(--space-4);
+  border-left:2px solid var(--ember);
+  padding-left:24px;
+  font-family:var(--font-display);font-weight:700;
+  font-size:clamp(1.1rem,2vw,1.35rem);line-height:1.35;
+}
+
+/* ---------- DEPOIMENTOS ---------- */
+.testi-grid{display:grid;gap:var(--space-3);margin-top:var(--space-6)}
+@media(min-width:768px){.testi-grid{grid-template-columns:repeat(2,1fr)}}
+.testi-card{
+  background:var(--surface);border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--radius);padding:var(--space-4);
+  display:flex;flex-direction:column;gap:18px;
+  transition:border-color .25s ease;
+}
+.testi-card:hover{border-color:var(--border-warm-2)}
+.testi-card svg{width:26px;height:26px;color:var(--ember);opacity:.7}
+.testi-card blockquote{color:var(--fg-muted);font-size:.97rem}
+.testi-card cite{
+  font-style:normal;font-family:var(--font-display);font-weight:700;
+  font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ember);
+}
+.testi-note{text-align:center;color:var(--fg-dim);font-size:.84rem;margin-top:var(--space-4)}
+
+/* ---------- OFERTA ---------- */
+.offer-box{
+  max-width:680px;margin:var(--space-6) auto 0;
+  background:var(--surface);
+  border:1px solid var(--border-warm-2);
+  border-radius:var(--radius-lg);
+  padding:var(--space-6) var(--space-4);
+  box-shadow:0 0 120px rgba(255,110,50,.14);
+  text-align:center;position:relative;overflow:hidden;
+}
+@media(min-width:768px){.offer-box{padding:var(--space-6)}}
+.offer-box::before{
+  content:"";position:absolute;top:-140px;left:50%;transform:translateX(-50%);
+  width:85%;height:280px;
+  background:radial-gradient(ellipse,rgba(255,138,61,.2),transparent 70%);
+  pointer-events:none;
+}
+.offer-items{list-style:none;text-align:left;display:flex;flex-direction:column;gap:22px;margin-bottom:var(--space-5);position:relative}
+.offer-items li{display:flex;gap:16px;align-items:flex-start}
+.offer-items li svg{width:24px;height:24px;flex-shrink:0;color:var(--ember);margin-top:3px}
+.offer-items .item-name{font-family:var(--font-display);font-weight:700;display:block;text-transform:uppercase;letter-spacing:.04em;font-size:.98rem}
+.offer-items .item-desc{display:block;color:var(--fg-muted);font-size:.92rem}
+.offer-items .item-value{display:block;color:var(--fg-dim);font-size:.82rem;margin-top:2px}
+.offer-divider{height:1px;background:rgba(255,255,255,.08);margin:var(--space-4) 0}
+.offer-old{color:var(--fg-dim);text-decoration:line-through;font-size:1.02rem}
+.offer-price{
+  font-family:var(--font-display);font-weight:900;
+  font-size:clamp(3.4rem,9vw,5rem);line-height:1;
+  margin:10px 0 6px;
+  background:var(--grad-text);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.offer-price sup{font-size:.32em;top:-1.8em;-webkit-text-fill-color:var(--ember)}
+.offer-sub{color:var(--fg-muted);font-size:.94rem;margin-bottom:var(--space-5)}
+
+/* ---------- GARANTIA ---------- */
+.guarantee-box{
+  display:grid;gap:var(--space-4);align-items:center;
+  background:var(--surface);border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--radius-lg);padding:var(--space-5) var(--space-4);
+}
+@media(min-width:768px){.guarantee-box{grid-template-columns:130px 1fr;padding:var(--space-5)}}
+.guarantee-seal{
+  width:116px;height:116px;border-radius:50%;
+  border:1px solid var(--border-warm-2);
+  background:radial-gradient(circle,rgba(255,138,61,.12),transparent 70%);
+  display:flex;align-items:center;justify-content:center;margin:0 auto;
+}
+.guarantee-seal svg{width:52px;height:52px;color:var(--ember)}
+.guarantee-box h2{font-size:clamp(1.4rem,2.6vw,2rem);margin-bottom:14px}
+.guarantee-box p{color:var(--fg-muted)}
+
+/* ---------- FAQ ---------- */
+.faq-list{margin-top:var(--space-6);display:flex;flex-direction:column;gap:var(--space-2)}
+.faq-item{
+  background:var(--surface);border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--radius);overflow:hidden;
+  transition:border-color .25s ease;
+}
+.faq-item.open{border-color:var(--border-warm-2)}
+.faq-q{
+  width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;
+  background:none;border:none;color:var(--fg);cursor:pointer;
+  font-family:var(--font-display);font-weight:700;font-size:1rem;
+  text-align:left;padding:24px 26px;min-height:44px;
+  transition:color .2s ease;
+}
+.faq-q:hover{color:var(--ember-hot)}
+.faq-q:focus-visible{outline:2px solid var(--ember);outline-offset:-2px}
+.faq-q svg{width:20px;height:20px;flex-shrink:0;transition:transform .25s ease;color:var(--ember)}
+.faq-item.open .faq-q svg{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.faq-a p{padding:0 26px 24px;color:var(--fg-muted);font-size:.96rem}
+
+/* ---------- FINAL ---------- */
+.final-wrap{
+  border-radius:var(--radius-lg);
+  border:1px solid var(--border-warm);
+  background:
+    radial-gradient(ellipse 90% 75% at 50% 118%,rgba(255,138,61,.38),rgba(255,77,50,.14) 45%,transparent 72%),
+    var(--surface);
+  padding:var(--space-7) var(--space-4);
+  text-align:center;overflow:hidden;position:relative;
+}
+@media(min-width:768px){.final-wrap{padding:var(--space-7) var(--space-6)}}
+.final-steps{
+  max-width:640px;margin:var(--space-6) auto;text-align:left;
+  display:flex;flex-direction:column;gap:var(--space-2);
+}
+.final-step{
+  background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--radius);padding:26px 30px;
+  font-size:clamp(1rem,1.8vw,1.15rem);color:var(--fg-muted);
+  font-style:italic;
+}
+.final-step strong{font-style:normal}
+.final-quote{
+  font-family:var(--font-display);font-weight:800;text-transform:uppercase;
+  font-size:clamp(1.4rem,3.2vw,2.4rem);line-height:1.15;
+  max-width:820px;margin:0 auto var(--space-6);
+}
+
+/* ---------- FOOTER ---------- */
+footer{
+  padding:var(--space-5) 0;text-align:center;
+  color:var(--fg-dim);font-size:.84rem;
+}
+footer a{color:var(--fg-dim);text-decoration:none}
+footer a:hover{color:var(--fg-muted)}
+</style>
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="nav" aria-label="Principal">
+  <a href="#" class="nav-brand">A<span>·</span>RUPTURA</a>
+  <a href="#oferta" class="nav-cta">Quero começar</a>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="container">
+    <p class="eyebrow">Treinamento de mentalidade · Livro + Aulas + Caderno</p>
+    <h1>Você sabe o que precisa fazer. Então por que continua <span class="grad-word">parado?</span></h1>
+    <p class="lead">Não é preguiça. Não é falta de força de vontade. É que ninguém te ensinou a romper com os padrões que te mantêm no automático. A Ruptura faz exatamente isso.</p>
+    <div class="hero-actions">
+      <a href="#oferta" class="btn">
+        Quero começar agora
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+      </a>
+      <a href="#metodo" class="btn btn-ghost">Conhecer o método</a>
+    </div>
+    <p class="hero-note">
+      <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+      Acesso imediato · Pagamento único · Garantia de 7 dias
+    </p>
+  </div>
+</header>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Mentalidade</span><span class="dot">·</span><span>Foco</span><span class="dot">·</span><span>Disciplina</span><span class="dot">·</span><span>Identidade</span><span class="dot">·</span><span>Clareza</span><span class="dot">·</span><span>Direção</span><span class="dot">·</span><span>Ruptura</span><span class="dot">·</span>
+    <span>Mentalidade</span><span class="dot">·</span><span>Foco</span><span class="dot">·</span><span>Disciplina</span><span class="dot">·</span><span>Identidade</span><span class="dot">·</span><span>Clareza</span><span class="dot">·</span><span>Direção</span><span class="dot">·</span><span>Ruptura</span><span class="dot">·</span>
+  </div>
+</div>
+
+<!-- ============ DORES ============ -->
+<section>
+  <div class="container reveal">
+    <div style="max-width:780px">
+      <p class="eyebrow">Você se reconhece aqui?</p>
+      <h2>Um padrão silencioso que se repete <span class="grad-word">há anos.</span></h2>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <h3>Promete. Não cumpre.</h3>
+        <p>"Amanhã eu começo." Você já falou isso tantas vezes que nem acredita mais na própria palavra.</p>
+      </div>
+      <div class="pain-card">
+        <h3>"Só 5 minutos" de tela</h3>
+        <p>Que viram 2 horas. E aquele peso no peito depois — que você aprendeu a fingir que não sente.</p>
+      </div>
+      <div class="pain-card">
+        <h3>Começa. Abandona.</h3>
+        <p>O projeto, o treino, a rotina. Três semanas depois, você nem lembra por que começou.</p>
+      </div>
+      <div class="pain-card">
+        <h3>Medo do julgamento</h3>
+        <p>Você evita tentar na frente dos outros. No fundo, o medo não é de falhar — é do que vão pensar.</p>
+      </div>
+      <div class="pain-card">
+        <h3>Fugas escondidas</h3>
+        <p>A tela, a nicotina, o resto que só você sabe. Cada uma cobra um preço que você finge não pagar.</p>
+      </div>
+      <div class="pain-card">
+        <h3>Vida no automático</h3>
+        <p>Às vezes parece que você está assistindo a sua vida — e não vivendo ela.</p>
+      </div>
+    </div>
+    <p class="pain-close">Isso não é fraqueza. É um padrão. <span class="grad-word">E padrão se rompe.</span></p>
+  </div>
+</section>
+
+<!-- ============ A VIRADA ============ -->
+<section style="padding-top:0">
+  <div class="container-narrow reveal">
+    <p class="eyebrow">Por que você continua igual</p>
+    <h2>O problema não é informação. Você já sabe <span class="grad-word">demais.</span></h2>
+    <p style="margin-top:var(--space-4);color:var(--fg-muted)">Você já viu os vídeos. Salvou as frases. Sentiu o sangue ferver e pensou: <em>"agora vai".</em></p>
+    <p style="margin-top:16px;color:var(--fg-muted)">Três dias depois, voltou pro mesmo lugar.</p>
+    <p style="margin-top:16px;color:var(--fg-muted)">Isso acontece porque você tenta mudar as ações carregando a mesma identidade: <em>"eu sou tímido", "eu sou procrastinador", "eu sempre desisto".</em> Rótulos que alguém te deu um dia — e você nunca questionou.</p>
+    <p style="margin-top:16px;color:var(--fg-muted)"><strong>Você não muda sabendo o que fazer. Você muda quando deixa de obedecer à versão de você que sempre desiste.</strong></p>
+    <p style="margin-top:16px;color:var(--fg-muted)">É isso que A Ruptura treina.</p>
+  </div>
+</section>
+
+<!-- ============ O MÉTODO ============ -->
+<section id="metodo" style="padding-top:0">
+  <div class="container reveal">
+    <div style="max-width:780px">
+      <p class="eyebrow">O método</p>
+      <h2>O que é <span class="grad-word">A Ruptura?</span></h2>
+      <p class="lead" style="margin-top:var(--space-3)">Não é desafio, agenda de hábitos nem frases motivacionais. É uma leitura de confronto + um sistema de prática, em três peças que trabalham juntas:</p>
+    </div>
+    <div class="method-grid">
+      <div class="method-card">
+        <span class="method-num">O LIVRO</span>
+        <h3>Ler para entender</h3>
+        <p>10 rupturas, 3 partes. Cada capítulo abre com a história real de um atleta — Goggins, Kobe, Senna — e termina com as perguntas que fazem o capítulo ser sobre você. Direto, sem enrolação.</p>
+      </div>
+      <div class="method-card">
+        <span class="method-num">AS AULAS</span>
+        <h3>Ver para se enxergar</h3>
+        <p>Uma aula em vídeo pra cada ruptura, no formato dos meus vídeos — só que sem a pressa dos 60 segundos.</p>
+      </div>
+      <div class="method-card">
+        <span class="method-num">O CADERNO</span>
+        <h3>Escrever para romper</h3>
+        <p>Caderno pontilhado digital (e imprimível) com os exercícios de cada capítulo. Pensamento na cabeça se perde. No papel, ele te confronta.</p>
+      </div>
+    </div>
+    <p class="method-close">Ler. Escrever. <span class="grad-word">Agir.</span></p>
+  </div>
+</section>
+
+<!-- ============ AS 3 PARTES + 10 RUPTURAS ============ -->
+<section style="padding-top:0">
+  <div class="container reveal">
+    <div style="max-width:780px">
+      <p class="eyebrow">Por dentro do livro</p>
+      <h2>3 partes. <span class="grad-word">10 rupturas.</span></h2>
+    </div>
+    <div class="parts-grid">
+      <div class="part-card">
+        <span class="part-label">Parte I</span>
+        <h3>Acordar</h3>
+        <p>Perceber o automático e questionar a identidade que sustenta sua vida atual.</p>
+      </div>
+      <div class="part-card">
+        <span class="part-label">Parte II</span>
+        <h3>Retomar o controle</h3>
+        <p>Confrontar sua atenção, suas fugas e seus excessos.</p>
+      </div>
+      <div class="part-card">
+        <span class="part-label">Parte III</span>
+        <h3>Reconstruir</h3>
+        <p>Reorganizar o ambiente, fortalecer os pilares e assumir a dedicação como modo de vida.</p>
+      </div>
+    </div>
+    <div class="rupturas-wrap">
+      <div class="ruptura-item"><span class="ruptura-num">01</span><div><h3>Conforto</h3><span class="ref">David Goggins</span><p>Você confundiu alívio com felicidade. O desconforto certo é o caminho de volta.</p></div></div>
+      <div class="ruptura-item"><span class="ruptura-num">02</span><div><h3>Identidade Antiga</h3><span class="ref">Muhammad Ali</span><p>Pare de perguntar "o que preciso fazer?" e comece a perguntar "quem preciso me tornar?"</p></div></div>
+      <div class="ruptura-item"><span class="ruptura-num">03</span><div><h3>O Básico</h3><span class="ref">Kobe Bryant</span><p>Enquanto você procura o método perfeito, quem vence repete o simples.</p></div></div>
+      <div class="ruptura-item"><span class="ruptura-num">04</span><div><h3>Foco</h3><span class="ref">Michael Phelps</span><p>Foco não é fazer tudo com intensidade. É proteger o que você decidiu que importa.</p></div></div>
+      <div class="ruptura-item"><span class="ruptura-num">05</span><div><h3>Mentalidade de Escassez</h3><span class="ref">Cristiano Ronaldo</span><p>Sua origem não é seu destino. E o que faltou não é desculpa pro que ainda dá pra construir.</p></div></div>
+      <div class="ruptura-item"><span class="ruptura-num">06</span><div><h3>Excesso</h3><span class="ref">Jiro Ono · Marco Aurélio</span><p>Adicionar mais virou sua forma de fugir do essencial. Menos ruído, mais direção.</p></div></div>
+      <div class="ruptura-item"><span class="ruptura-num">07</span><div><h3>Fuga</h3><span class="ref">Michael Jordan</span><p>Procrastinação raramente é preguiça. É fuga. E fuga se encara.</p></div></div>
+      <div class="ruptura-item"><span class="ruptura-num">08</span><div><h3>Ambiente</h3><span class="ref">Ayrton Senna</span><p>Você não controla tudo. Mas controla sua preparação, sua exposição e sua resposta.</p></div></div>
+      <div class="ruptura-item"><span class="ruptura-num">09</span><div><h3>Pilares</h3><span class="ref">Novak Djokovic</span><p>Nenhuma mudança se sustenta sobre uma vida desequilibrada.</p></div></div>
+      <div class="ruptura-item"><span class="ruptura-num">10</span><div><h3>Dedicação</h3><span class="ref">Kobe Bryant · Cafu</span><p>A melhor versão não é um lugar onde se chega. É construída nas decisões de todos os dias.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PARA QUEM É ============ -->
+<section style="padding-top:0">
+  <div class="container reveal">
+    <div style="max-width:780px">
+      <p class="eyebrow">Pra quem é</p>
+      <h2>Esse treinamento é <span class="grad-word">pra você que:</span></h2>
+    </div>
+    <div class="forwho-grid">
+      <div class="forwho-card yes">
+        <h3>É pra você que:</h3>
+        <ul>
+          <li><svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>Sente que poderia ser mais</li>
+          <li><svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>Procrastina mesmo sabendo o que precisa fazer</li>
+          <li><svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>Quer se livrar das fugas: tela, entretenimento, vícios</li>
+          <li><svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>Quer voltar a confiar na própria palavra</li>
+          <li><svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>Quer disciplina, clareza e respeito próprio</li>
+          <li><svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>Gosta de esporte, histórias de superação e reflexões que mexem de verdade</li>
+        </ul>
+      </div>
+      <div class="forwho-card no">
+        <h3>Não é pra você que:</h3>
+        <ul>
+          <li><svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg>Espera transformação mágica sem fazer nada</li>
+          <li><svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg>Procura frase bonita pra postar e continuar igual</li>
+          <li><svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg>Quer que alguém mude sua vida por você</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AUTOR ============ -->
+<section style="padding-top:0">
+  <div class="container reveal">
+    <div class="author-wrap">
+      <div class="author-photo">[ Foto do Hebber ]</div>
+      <div class="author-text">
+        <p class="eyebrow">Quem escreve</p>
+        <h2 style="margin-bottom:var(--space-3);font-size:clamp(1.6rem,3.4vw,2.4rem)">Hebber <span class="grad-word">Magalhães</span></h2>
+        <p>Aos 25 anos, eu já tinha passado por mais de 23 empregos. Era o tímido que ensaiava a frase na cabeça e não falava. Que começava e abandonava. Que se escondia na tela e na nicotina — e mentia pra si mesmo pra doer menos.</p>
+        <p>Até perceber o pior: <strong>eu não acreditava mais na minha própria palavra.</strong></p>
+        <p>O que me reconstruiu foi o esporte. No judô, no boxe e no jiu-jitsu, aprendi na pele a suportar pressão, perder, repetir e continuar sem vontade. Vieram medalhas — mas o que ficou foi a mentalidade.</p>
+        <p>Foi ela que me fez encarar a câmera que eu tinha pavor, largar o julgamento alheio e romper, decisão por decisão, com a versão de mim que sempre desistia. Hoje meus vídeos alcançam milhares de pessoas. A Ruptura é esse processo — organizado pra você.</p>
+        <p class="author-quote">"Eu não escrevi esse livro porque venci. Escrevi porque conheço o lugar de onde você está tentando sair."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEPOIMENTOS ============ -->
+<section style="padding-top:0">
+  <div class="container reveal">
+    <div style="max-width:780px">
+      <p class="eyebrow">Quem acompanha</p>
+      <h2>O que estão <span class="grad-word">dizendo</span></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 10c-.223 0-.437.034-.65.065.069-.232.14-.468.254-.68.114-.308.292-.575.469-.844.148-.291.409-.488.601-.737.201-.242.475-.403.692-.604.213-.21.492-.315.714-.463.232-.133.434-.28.65-.35l.539-.222.474-.197-.485-1.938-.597.144c-.191.048-.424.104-.689.171-.271.05-.56.187-.882.312-.318.142-.686.238-1.028.466-.344.218-.741.4-1.091.692-.339.301-.748.562-1.05.945-.33.358-.656.734-.909 1.162-.293.408-.492.856-.702 1.299-.19.443-.343.896-.468 1.336-.237.882-.343 1.72-.384 2.437-.034.718-.014 1.315.028 1.747.015.204.043.402.063.539l.025.168.026-.006A4.5 4.5 0 1 0 6.5 10zm11 0c-.223 0-.437.034-.65.065.069-.232.14-.468.254-.68.114-.308.292-.575.469-.844.148-.291.409-.488.601-.737.201-.242.475-.403.692-.604.213-.21.492-.315.714-.463.232-.133.434-.28.65-.35l.539-.222.474-.197-.485-1.938-.597.144c-.191.048-.424.104-.689.171-.271.05-.56.187-.882.312-.317.143-.686.238-1.028.467-.344.218-.741.4-1.091.691-.339.301-.748.562-1.05.945-.33.358-.656.734-.909 1.162-.293.408-.492.856-.702 1.299-.19.443-.343.896-.468 1.336-.237.882-.343 1.72-.384 2.437-.034.718-.014 1.315.028 1.747.015.204.043.402.063.539l.025.168.026-.006A4.5 4.5 0 1 0 17.5 10z"/></svg>
+        <blockquote>"Seu conteúdo traz reflexão de vida, faz a pessoa pensar se ela tá vivendo da maneira que quer ou se tá buscando viver igual os demais. Traz um choque de realidade que faz a pessoa querer sair da zona de conforto."</blockquote>
+        <cite>— Hudson</cite>
+      </div>
+      <div class="testi-card">
+        <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 10c-.223 0-.437.034-.65.065.069-.232.14-.468.254-.68.114-.308.292-.575.469-.844.148-.291.409-.488.601-.737.201-.242.475-.403.692-.604.213-.21.492-.315.714-.463.232-.133.434-.28.65-.35l.539-.222.474-.197-.485-1.938-.597.144c-.191.048-.424.104-.689.171-.271.05-.56.187-.882.312-.318.142-.686.238-1.028.466-.344.218-.741.4-1.091.692-.339.301-.748.562-1.05.945-.33.358-.656.734-.909 1.162-.293.408-.492.856-.702 1.299-.19.443-.343.896-.468 1.336-.237.882-.343 1.72-.384 2.437-.034.718-.014 1.315.028 1.747.015.204.043.402.063.539l.025.168.026-.006A4.5 4.5 0 1 0 6.5 10zm11 0c-.223 0-.437.034-.65.065.069-.232.14-.468.254-.68.114-.308.292-.575.469-.844.148-.291.409-.488.601-.737.201-.242.475-.403.692-.604.213-.21.492-.315.714-.463.232-.133.434-.28.65-.35l.539-.222.474-.197-.485-1.938-.597.144c-.191.048-.424.104-.689.171-.271.05-.56.187-.882.312-.317.143-.686.238-1.028.467-.344.218-.741.4-1.091.691-.339.301-.748.562-1.05.945-.33.358-.656.734-.909 1.162-.293.408-.492.856-.702 1.299-.19.443-.343.896-.468 1.336-.237.882-.343 1.72-.384 2.437-.034.718-.014 1.315.028 1.747.015.204.043.402.063.539l.025.168.026-.006A4.5 4.5 0 1 0 17.5 10z"/></svg>
+        <blockquote>"Esse é a fase que estava da minha vida: onde as coisas tinham perdido as cores. Mas encontrei uma página que me ajudasse a melhorar, a me moldar."</blockquote>
+        <cite>— Rafael</cite>
+      </div>
+      <div class="testi-card">
+        <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 10c-.223 0-.437.034-.65.065.069-.232.14-.468.254-.68.114-.308.292-.575.469-.844.148-.291.409-.488.601-.737.201-.242.475-.403.692-.604.213-.21.492-.315.714-.463.232-.133.434-.28.65-.35l.539-.222.474-.197-.485-1.938-.597.144c-.191.048-.424.104-.689.171-.271.05-.56.187-.882.312-.318.142-.686.238-1.028.466-.344.218-.741.4-1.091.692-.339.301-.748.562-1.05.945-.33.358-.656.734-.909 1.162-.293.408-.492.856-.702 1.299-.19.443-.343.896-.468 1.336-.237.882-.343 1.72-.384 2.437-.034.718-.014 1.315.028 1.747.015.204.043.402.063.539l.025.168.026-.006A4.5 4.5 0 1 0 6.5 10zm11 0c-.223 0-.437.034-.65.065.069-.232.14-.468.254-.68.114-.308.292-.575.469-.844.148-.291.409-.488.601-.737.201-.242.475-.403.692-.604.213-.21.492-.315.714-.463.232-.133.434-.28.65-.35l.539-.222.474-.197-.485-1.938-.597.144c-.191.048-.424.104-.689.171-.271.05-.56.187-.882.312-.317.143-.686.238-1.028.467-.344.218-.741.4-1.091.691-.339.301-.748.562-1.05.945-.33.358-.656.734-.909 1.162-.293.408-.492.856-.702 1.299-.19.443-.343.896-.468 1.336-.237.882-.343 1.72-.384 2.437-.034.718-.014 1.315.028 1.747.015.204.043.402.063.539l.025.168.026-.006A4.5 4.5 0 1 0 17.5 10z"/></svg>
+        <blockquote>"A partir de amanhã irei contar quantos dias eu estou sem o vício do entretenimento. Assim como viciados em álcool e cigarro fazem, pois esse vício é sério."</blockquote>
+        <cite>— Misael</cite>
+      </div>
+      <div class="testi-card">
+        <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 10c-.223 0-.437.034-.65.065.069-.232.14-.468.254-.68.114-.308.292-.575.469-.844.148-.291.409-.488.601-.737.201-.242.475-.403.692-.604.213-.21.492-.315.714-.463.232-.133.434-.28.65-.35l.539-.222.474-.197-.485-1.938-.597.144c-.191.048-.424.104-.689.171-.271.05-.56.187-.882.312-.318.142-.686.238-1.028.466-.344.218-.741.4-1.091.692-.339.301-.748.562-1.05.945-.33.358-.656.734-.909 1.162-.293.408-.492.856-.702 1.299-.19.443-.343.896-.468 1.336-.237.882-.343 1.72-.384 2.437-.034.718-.014 1.315.028 1.747.015.204.043.402.063.539l.025.168.026-.006A4.5 4.5 0 1 0 6.5 10zm11 0c-.223 0-.437.034-.65.065.069-.232.14-.468.254-.68.114-.308.292-.575.469-.844.148-.291.409-.488.601-.737.201-.242.475-.403.692-.604.213-.21.492-.315.714-.463.232-.133.434-.28.65-.35l.539-.222.474-.197-.485-1.938-.597.144c-.191.048-.424.104-.689.171-.271.05-.56.187-.882.312-.317.143-.686.238-1.028.467-.344.218-.741.4-1.091.691-.339.301-.748.562-1.05.945-.33.358-.656.734-.909 1.162-.293.408-.492.856-.702 1.299-.19.443-.343.896-.468 1.336-.237.882-.343 1.72-.384 2.437-.034.718-.014 1.315.028 1.747.015.204.043.402.063.539l.025.168.026-.006A4.5 4.5 0 1 0 17.5 10z"/></svg>
+        <blockquote>"Minha vida tem mais cores. Minhas metas estão traçadas, e meus objetivos estão ao meu alcance."</blockquote>
+        <cite>— Rafael</cite>
+      </div>
+    </div>
+    <p class="testi-note">Mensagens reais recebidas nas redes do Hebber.</p>
+  </div>
+</section>
+
+<!-- ============ OFERTA ============ -->
+<section id="oferta" style="padding-top:0">
+  <div class="container reveal">
+    <div style="max-width:780px;margin:0 auto;text-align:center">
+      <p class="eyebrow center">Oferta</p>
+      <h2>Tudo isso, <span class="grad-word">hoje:</span></h2>
+    </div>
+    <div class="offer-box">
+      <ul class="offer-items">
+        <li>
+          <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"/></svg>
+          <div><span class="item-name">O Livro da Ruptura</span><span class="item-desc">3 partes, 10 rupturas, histórias reais e as perguntas certas</span><span class="item-value">Valor real: R$47</span></div>
+        </li>
+        <li>
+          <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z"/></svg>
+          <div><span class="item-name">As Aulas da Ruptura</span><span class="item-desc">Uma aula em vídeo aprofundada por ruptura</span><span class="item-value">Valor real: R$97</span></div>
+        </li>
+        <li>
+          <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10"/></svg>
+          <div><span class="item-name">O Caderno da Ruptura</span><span class="item-desc">Caderno pontilhado digital + imprimível, com os exercícios de cada capítulo</span><span class="item-value">Valor real: R$37</span></div>
+        </li>
+      </ul>
+      <div class="offer-divider"></div>
+      <p class="offer-old">De R$181 por apenas</p>
+      <p class="offer-price"><sup>R$</sup>36</p>
+      <p class="offer-sub">Pagamento único. Sem mensalidade.</p>
+      <a href="https://payfast.greenn.com.br/SEU_LINK_AQUI" class="btn" style="width:100%">
+        Quero começar agora
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+      </a>
+      <p class="btn-note">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"/></svg>
+        Acesso imediato · Pagamento seguro via Greenn · Pix, cartão ou boleto
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GARANTIA ============ -->
+<section style="padding-top:0">
+  <div class="container-narrow reveal">
+    <div class="guarantee-box">
+      <div class="guarantee-seal">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg>
+      </div>
+      <div>
+        <h2>Garantia de <span class="grad-word">7 dias</span></h2>
+        <p>Se não for pra você, me manda um e-mail dentro de 7 dias e devolvo 100% do dinheiro. Sem perguntas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section style="padding-top:0">
+  <div class="container-narrow reveal">
+    <p class="eyebrow">Dúvidas</p>
+    <h2>Perguntas <span class="grad-word">frequentes</span></h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Como vou receber o acesso?<svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg></button>
+        <div class="faq-a"><p>Por e-mail, logo após a confirmação do pagamento. Livro, aulas e caderno de uma vez.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Isso vai me transformar de verdade?<svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg></button>
+        <div class="faq-a"><p>Nenhum livro transforma ninguém magicamente — quem promete isso está mentindo. A Ruptura entrega clareza, confronto e direção. A transformação depende do que você fizer com isso. Por isso o caderno existe: pra virar prática.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Já comprei e-book e não terminei. Por que esse seria diferente?<svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg></button>
+        <div class="faq-a"><p>Porque cada capítulo abre com uma história que te puxa pra dentro e termina com perguntas sobre a sua vida — não sobre a do autor. Você não lê A Ruptura. Você se lê nela.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">O caderno é físico?<svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg></button>
+        <div class="faq-a"><p>É digital: você usa no tablet/computador ou imprime em casa. Vem com a metodologia explicada passo a passo.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Funciona no celular?<svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg></button>
+        <div class="faq-a"><p>Sim. Livro, aulas e caderno funcionam em qualquer dispositivo.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Quais são as formas de pagamento?<svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg></button>
+        <div class="faq-a"><p>Pix, cartão ou boleto, com pagamento 100% seguro pela Greenn.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">E se eu não gostar?<svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg></button>
+        <div class="faq-a"><p>7 dias de garantia total. Pediu, devolveu. Sem perguntas.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FECHAMENTO ============ -->
+<section style="padding-top:0">
+  <div class="container reveal">
+    <div class="final-wrap">
+      <h2>O que vai acontecer quando você <span class="grad-word">começar</span></h2>
+      <div class="final-steps">
+        <p class="final-step">Nas primeiras páginas: <strong>"esse cara descreveu exatamente o lugar em que eu estou."</strong></p>
+        <p class="final-step">Em algum capítulo: <strong>"talvez eu não seja incapaz. Talvez eu esteja obedecendo a uma versão de mim que nunca questionei."</strong></p>
+        <p class="final-step">No final: <strong>"eu não preciso mudar tudo hoje. Mas preciso parar de fugir da próxima decisão."</strong></p>
+      </div>
+      <p class="final-quote">A próxima decisão está na sua frente. <span class="grad-word">Agora.</span></p>
+      <a href="#oferta" class="btn">
+        Quero começar agora
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+      </a>
+      <p class="btn-note">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+        Acesso imediato · R$36 · Garantia de 7 dias
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Hebber Magalhães — A Ruptura. Todos os direitos reservados. · <a href="/privacidade">Privacidade</a></p>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+document.querySelectorAll('.faq-item').forEach(item => {
+  const btn = item.querySelector('.faq-q');
+  const ans = item.querySelector('.faq-a');
+  btn.addEventListener('click', () => {
+    const open = item.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+    ans.style.maxHeight = open ? ans.scrollHeight + 'px' : '0';
+  });
+});
+</script>
+</body>
+</html>

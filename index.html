@@ -290,7 +290,8 @@ section{padding:var(--space-7) 0}
 /* -- Caderno (devices) -- */
 .devices-mockup{position:relative;padding-bottom:8px}
 .browser-frame{
-  border-radius:14px;overflow:hidden;background:var(--surface-2);
+  position:relative;
+  border-radius:14px;overflow:visible;background:var(--surface-2);
   border:1px solid rgba(255,255,255,.1);
   box-shadow:0 30px 70px rgba(0,0,0,.5);
   transition:transform .4s ease,box-shadow .4s ease;
@@ -299,6 +300,7 @@ section{padding:var(--space-7) 0}
 .browser-bar{
   display:flex;align-items:center;gap:7px;
   padding:11px 14px;background:#1C1A18;
+  border-radius:14px 14px 0 0;
 }
 .browser-bar .dot{width:9px;height:9px;border-radius:50%;background:#4A4642}
 .browser-bar .dot:nth-child(1){background:#FF5F57}
@@ -308,13 +310,14 @@ section{padding:var(--space-7) 0}
   margin-left:10px;font-family:var(--font-display);font-size:.68rem;
   color:var(--fg-dim);letter-spacing:.02em;
 }
-.browser-frame img{width:100%;height:auto;display:block}
+.browser-frame > img{width:100%;height:auto;display:block;border-radius:0 0 14px 14px}
 .phone-frame{
   position:absolute;right:14px;left:auto;bottom:-34px;width:26%;min-width:96px;max-width:140px;
   border-radius:22px;overflow:hidden;background:#111;
   border:5px solid #1C1A18;
   box-shadow:0 20px 50px rgba(0,0,0,.55);
   animation:float-phone 5s ease-in-out infinite;
+  z-index:2;
 }
 .phone-notch{
   position:absolute;top:0;left:50%;transform:translateX(-50%);
@@ -323,11 +326,11 @@ section{padding:var(--space-7) 0}
 .phone-frame img{width:100%;height:auto;display:block}
 @keyframes float-phone{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 .devices-caption{
-  margin-top:48px;text-align:center;color:var(--fg-dim);font-size:.85rem;
+  margin-top:150px;text-align:center;color:var(--fg-dim);font-size:.85rem;
 }
 @media(min-width:900px){
   .phone-frame{left:-7%;right:auto;bottom:-42px;width:29%;min-width:112px;max-width:170px}
-  .devices-caption{margin-top:56px}
+  .devices-caption{margin-top:175px}
 }
 @media(prefers-reduced-motion:reduce){
   .phone-frame{animation:none}
@@ -687,10 +690,10 @@ footer a:hover{color:var(--fg-muted)}
             <span class="browser-title">caderno.aruptura.site</span>
           </div>
           <img src="assets/caderno-rupturas.jpg" alt="Tela do Caderno da Ruptura mostrando a lista das 10 rupturas, cada uma com seu status de progresso" loading="lazy" width="1300" height="730">
-        </div>
-        <div class="phone-frame">
-          <div class="phone-notch"></div>
-          <img src="assets/caderno-conforto.jpg" alt="Tela do Caderno da Ruptura mostrando o exercício de escrita da Ruptura 1: Conforto" loading="lazy" width="1300" height="805">
+          <div class="phone-frame">
+            <div class="phone-notch"></div>
+            <img src="assets/caderno-conforto.jpg" alt="Tela do Caderno da Ruptura mostrando o exercício de escrita da Ruptura 1: Conforto" loading="lazy" width="1300" height="805">
+          </div>
         </div>
         <p class="devices-caption">O Caderno da Ruptura — no computador ou no celular</p>
       </div>

@@ -320,21 +320,103 @@ section{padding:var(--space-7) 0}
 }
 .browser-frame > img{width:100%;height:auto;display:block;border-radius:0 0 14px 14px}
 
-/* Flipbook: o livro aberto de verdade */
-.flipbook-frame{
-  position:relative;
-  border-radius:14px;overflow:visible;
-  box-shadow:0 30px 70px rgba(0,0,0,.55);
-  transition:transform .4s ease,box-shadow .4s ease;
+/* ---------- Capa do ebook ---------- */
+.book-mockup{perspective:1400px;max-width:300px;margin:0 auto}
+@media(min-width:900px){.book-mockup{margin:0}}
+.book-mockup-inner{
+  position:relative;transform-style:preserve-3d;
+  transition:transform .5s cubic-bezier(.16,1,.3,1);
+  transform:rotateY(-14deg) rotateX(3deg);
 }
-.devices-mockup:hover .flipbook-frame{transform:translateY(-4px);box-shadow:0 40px 90px rgba(0,0,0,.65)}
-.flipbook-frame > img{width:100%;height:auto;display:block;border-radius:14px}
-/* vinco central, pra ler como livro e não como imagem chapada */
-.flipbook-frame::after{
-  content:"";position:absolute;top:0;bottom:0;left:50%;width:26px;
-  transform:translateX(-50%);pointer-events:none;border-radius:14px;
-  background:linear-gradient(90deg,transparent,rgba(0,0,0,.30) 42%,rgba(0,0,0,.38) 50%,rgba(0,0,0,.30) 58%,transparent);
+.book-mockup:hover .book-mockup-inner{transform:rotateY(-6deg) rotateX(1deg) scale(1.02)}
+.book-pages{
+  position:absolute;top:6px;right:-9px;bottom:6px;width:16px;
+  background:repeating-linear-gradient(180deg,#e9e4d8 0px,#dfd9c8 2px,#e9e4d8 4px);
+  border-radius:0 4px 4px 0;
+  box-shadow:2px 0 6px rgba(0,0,0,.35);
+  transform:translateZ(-6px);
 }
+.book-cover{
+  position:relative;aspect-ratio:2/3;border-radius:6px 10px 10px 6px;
+  overflow:hidden;
+  background:
+    linear-gradient(100deg,rgba(0,0,0,.88) 0%,rgba(0,0,0,.82) 42%,rgba(0,0,0,.15) 62%,rgba(0,0,0,.05) 100%),
+    url('assets/capa-textura.jpg') center/cover no-repeat;
+  box-shadow:14px 18px 46px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.06);
+  padding:24px 22px;display:flex;flex-direction:column;
+  color:#F4F1EA;
+}
+.book-eyebrow{
+  font-family:var(--font-display);font-weight:700;font-size:.6rem;
+  letter-spacing:.28em;text-transform:uppercase;color:var(--coral);margin-bottom:14px;
+}
+.book-title{
+  font-family:var(--font-display);font-weight:900;text-transform:uppercase;
+  font-size:1.9rem;line-height:1;letter-spacing:-.01em;color:#F7F5F0;
+}
+.book-rule{width:38px;height:3px;background:var(--coral);margin:14px 0}
+.book-tagline{font-size:.72rem;line-height:1.45;color:#D8D3C6;font-weight:500}
+.book-quote{
+  margin-top:auto;font-style:italic;font-size:.68rem;line-height:1.5;
+  color:#B8B2A2;padding-top:18px;
+}
+.book-byline{
+  margin-top:14px;font-family:var(--font-display);font-weight:700;
+  font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:#F4F1EA;
+}
+
+/* Coluna do livro: capa + celular lado a lado */
+.book-col{display:grid;grid-template-columns:1.25fr 1fr;gap:var(--space-3);align-items:center}
+@media(min-width:900px){.book-col{gap:var(--space-4)}}
+
+/* Celular solto (não sobreposto) */
+.phone-solo{
+  position:relative;border-radius:20px;overflow:hidden;background:#111;
+  border:5px solid #1C1A18;
+  box-shadow:0 20px 50px rgba(0,0,0,.55);
+}
+.phone-solo .phone-notch{
+  position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:36%;height:14px;background:#1C1A18;border-radius:0 0 9px 9px;z-index:3;
+}
+
+/* ---------- Carrossel ---------- */
+.carousel{position:relative}
+.car-viewport{overflow:hidden}
+.car-track{display:flex;transition:transform .55s cubic-bezier(.16,1,.3,1);will-change:transform}
+.car-track img{flex:0 0 100%;width:100%;height:auto;display:block}
+.car-btn{
+  position:absolute;top:50%;transform:translateY(-50%);z-index:4;
+  width:34px;height:34px;border-radius:50%;cursor:pointer;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(12,10,9,.62);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  color:#F7F5F2;display:flex;align-items:center;justify-content:center;
+  transition:background .2s ease,border-color .2s ease,opacity .2s ease;
+  padding:0;
+}
+.car-btn:hover{background:rgba(255,138,61,.85);border-color:transparent;color:#1A0E05}
+.car-btn:focus-visible{outline:3px solid var(--ember-hot);outline-offset:2px}
+.car-btn svg{width:16px;height:16px}
+.car-prev{left:8px}
+.car-next{right:8px}
+.phone-solo .car-btn{width:26px;height:26px}
+.phone-solo .car-btn svg{width:12px;height:12px}
+.phone-solo .car-prev{left:4px}
+.phone-solo .car-next{right:4px}
+.car-dots{
+  position:absolute;left:50%;transform:translateX(-50%);bottom:12px;z-index:4;
+  display:flex;justify-content:center;gap:6px;
+  padding:7px 10px;border-radius:999px;
+  background:rgba(12,10,9,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+}
+.car-dots button{
+  width:7px;height:7px;border-radius:50%;padding:0;cursor:pointer;
+  border:none;background:rgba(255,255,255,.45);transition:background .2s ease,width .2s ease;
+}
+.car-dots button[aria-current="true"]{background:var(--ember);width:18px;border-radius:99px}
+.car-dots button:focus-visible{outline:2px solid var(--ember-hot);outline-offset:2px}
+.phone-solo .car-dots{display:none}
+
 .phone-frame{
   position:absolute;right:14px;left:auto;bottom:-60px;width:22%;min-width:90px;max-width:130px;
   border-radius:22px;overflow:hidden;background:#111;
@@ -350,13 +432,13 @@ section{padding:var(--space-7) 0}
 .phone-frame img{width:100%;height:auto;display:block}
 @keyframes float-phone{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 .devices-caption{
-  margin-top:118px;text-align:center;color:var(--fg-dim);font-size:.85rem;
+  margin-top:var(--space-3);text-align:center;color:var(--fg-dim);font-size:.85rem;
 }
 @media(min-width:900px){
   .phone-frame{left:-7%;right:auto;bottom:-70px;width:24%;min-width:110px;max-width:150px}
   /* cada celular pende para o lado de fora da sua coluna, sem se encontrarem no meio */
   .browser-frame .phone-frame{right:-7%;left:auto}
-  .devices-caption{margin-top:220px}
+  .devices-caption{margin-top:var(--space-4)}
 }
 @media(prefers-reduced-motion:reduce){
   .phone-frame{animation:none}
@@ -744,29 +826,53 @@ Acesso imediato e vitalício · Garantia de 7 dias
       <h2>Isso não é teoria. <span class="grad-word">É material real.</span></h2>
     </div>
     <div class="products-grid">
-      <div class="devices-mockup">
-        <div class="flipbook-frame">
-          <img src="assets/flipbook-spread.jpg" alt="Livro A Ruptura aberto em flipbook no capítulo 08, A Ruptura do Ambiente, com a história de Ayrton Senna" loading="lazy" width="1290" height="1002">
-          <div class="phone-frame">
-            <div class="phone-notch"></div>
-            <img src="assets/flipbook-phone.jpg" alt="O mesmo livro aberto no celular, com uma página virando" loading="lazy" width="393" height="852">
+      <div class="book-col">
+        <div class="book-mockup">
+          <div class="book-mockup-inner">
+            <div class="book-pages" aria-hidden="true"></div>
+            <div class="book-cover">
+              <p class="book-eyebrow">Livro digital</p>
+              <h3 class="book-title">A<br>RUPTURA</h3>
+              <div class="book-rule"></div>
+              <p class="book-tagline">Um treinamento de mentalidade<br>para sair do automático</p>
+              <p class="book-quote">"Ler para entender.<br>Escrever para se enxergar.<br>Agir para romper."</p>
+              <p class="book-byline">HEBBER MAGALHÃES</p>
+            </div>
           </div>
         </div>
-        <p class="devices-caption">O livro abre em flipbook — e vira a página de verdade</p>
+        <div class="phone-solo carousel" data-carousel aria-roledescription="carrossel" aria-label="O livro no celular">
+          <div class="phone-notch"></div>
+          <div class="car-viewport">
+            <div class="car-track">
+              <img src="assets/livro-cel-ali.jpg" alt="O livro A Ruptura no celular, em Muhammad Ali" loading="lazy" width="393" height="852">
+              <img src="assets/livro-cel-virando1.jpg" alt="O livro A Ruptura no celular, em uma página virando" loading="lazy" width="393" height="852">
+              <img src="assets/livro-cel-phelps.jpg" alt="O livro A Ruptura no celular, em Michael Phelps" loading="lazy" width="393" height="852">
+              <img src="assets/livro-cel-virando2.jpg" alt="O livro A Ruptura no celular, em Cristiano Ronaldo, com a página virando" loading="lazy" width="393" height="852">
+            </div>
+          </div>
+          <button class="car-btn car-prev" type="button" aria-label="Página anterior"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.4" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5"/></svg></button><button class="car-btn car-next" type="button" aria-label="Próxima página"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.4" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/></svg></button>
+        </div>
       </div>
       <div class="devices-mockup">
-        <div class="browser-frame">
+        <div class="browser-frame carousel" data-carousel aria-roledescription="carrossel" aria-label="O Caderno da Ruptura e o livro no computador">
           <div class="browser-bar">
             <span class="dot"></span><span class="dot"></span><span class="dot"></span>
             <span class="browser-title">caderno.aruptura.site</span>
           </div>
-          <img src="assets/caderno-rupturas.jpg" alt="Tela do Caderno da Ruptura mostrando a lista das 10 rupturas, cada uma com seu status de progresso" loading="lazy" width="1300" height="730">
-          <div class="phone-frame">
-            <div class="phone-notch"></div>
-            <img src="assets/caderno-phone.jpg" alt="Tela do Caderno da Ruptura mostrando o exercício de escrita da Ruptura 1: Conforto" loading="lazy" width="393" height="852">
+          <div class="car-viewport">
+            <div class="car-track">
+              <img src="assets/caderno-rupturas.jpg" alt="Tela do Caderno da Ruptura mostrando a lista das 10 rupturas" loading="lazy" width="1300" height="730">
+              <img src="assets/caderno-conforto.jpg" alt="Tela do Caderno da Ruptura mostrando o exercício da Ruptura 01, Conforto" loading="lazy" width="1300" height="805">
+              <img src="assets/livro-goggins.jpg" alt="Tela do Caderno da Ruptura mostrando o livro aberto no capítulo 01, com a história de David Goggins" loading="lazy" width="1300" height="800">
+              <img src="assets/livro-senna.jpg" alt="Tela do Caderno da Ruptura mostrando o livro aberto no capítulo 08, com a história de Ayrton Senna" loading="lazy" width="1300" height="800">
+              <img src="assets/livro-poatan.jpg" alt="Tela do Caderno da Ruptura mostrando o livro aberto no capítulo 09, com a história de Alex Pereira Poatan" loading="lazy" width="1300" height="800">
+              <img src="assets/livro-introducao.jpg" alt="Tela do Caderno da Ruptura mostrando a introdução do livro" loading="lazy" width="1300" height="800">
+            </div>
           </div>
+          <button class="car-btn car-prev" type="button" aria-label="Página anterior"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.4" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5"/></svg></button><button class="car-btn car-next" type="button" aria-label="Próxima página"><svg fill="none" viewBox="0 0 24 24" stroke-width="2.4" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/></svg></button>
+          <div class="car-dots"></div>
         </div>
-        <p class="devices-caption">O Caderno da Ruptura — no computador ou no celular</p>
+        <p class="devices-caption">Tudo num só lugar: o livro abre em flipbook e o caderno é onde você escreve — no computador e no celular</p>
       </div>
     </div>
   </div>
@@ -1097,6 +1203,64 @@ document.querySelectorAll('.faq-item').forEach(item => {
 // Reabre corretamente se a janela mudar de tamanho
 window.addEventListener('resize', () => {
   document.querySelectorAll('.faq-item.open .faq-a').forEach(a => { a.style.maxHeight = a.scrollHeight + 'px'; });
+});
+
+/* ---------- Carrossel dos mockups ---------- */
+document.querySelectorAll('[data-carousel]').forEach(root => {
+  const track = root.querySelector('.car-track');
+  const slides = [...track.querySelectorAll('img')];
+  if (slides.length < 2) return;
+  const dots = root.querySelector('.car-dots');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let i = 0, timer = null;
+
+  if (dots) {
+    slides.forEach((_, n) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('aria-label', 'Ir para a tela ' + (n + 1));
+      b.addEventListener('click', () => { go(n); hold(); });
+      dots.appendChild(b);
+    });
+  }
+
+  function render() {
+    track.style.transform = 'translateX(' + (-i * 100) + '%)';
+    slides.forEach((s, n) => s.setAttribute('aria-hidden', String(n !== i)));
+    if (dots) [...dots.children].forEach((d, n) => d.setAttribute('aria-current', String(n === i)));
+  }
+  function go(n) { i = (n + slides.length) % slides.length; render(); }
+  function next() { go(i + 1); }
+
+  root.querySelector('.car-next').addEventListener('click', () => { next(); hold(); });
+  root.querySelector('.car-prev').addEventListener('click', () => { go(i - 1); hold(); });
+
+  /* passa sozinho, mas para assim que a pessoa interage ou tira da tela */
+  function play() { if (!reduce && !timer) timer = setInterval(next, 4200); }
+  function stop() { clearInterval(timer); timer = null; }
+  function hold() { stop(); setTimeout(play, 9000); }
+
+  root.addEventListener('mouseenter', stop);
+  root.addEventListener('mouseleave', play);
+  root.addEventListener('focusin', stop);
+  root.addEventListener('focusout', play);
+
+  /* arrastar com o dedo */
+  let x0 = null;
+  root.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; stop(); }, { passive: true });
+  root.addEventListener('touchend', e => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 40) go(i + (dx < 0 ? 1 : -1));
+    x0 = null; hold();
+  }, { passive: true });
+
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? play() : stop()),
+      { threshold: 0.25 }).observe(root);
+  } else { play(); }
+
+  render();
 });
 
 /* ---------- 10 rupturas: recolhe no mobile (sem JS, continua aberta) ---------- */

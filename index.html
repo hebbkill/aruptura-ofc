@@ -403,15 +403,14 @@ section{padding:var(--space-7) 0}
 .phone-solo .car-btn svg{width:12px;height:12px}
 .phone-solo .car-prev{left:4px}
 .phone-solo .car-next{right:4px}
+/* fora do quadro, para não disputar espaço com a barra do próprio flipbook */
 .car-dots{
-  position:absolute;left:50%;transform:translateX(-50%);bottom:12px;z-index:4;
-  display:flex;justify-content:center;gap:6px;
-  padding:7px 10px;border-radius:999px;
-  background:rgba(12,10,9,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  position:absolute;left:50%;transform:translateX(-50%);bottom:-26px;z-index:4;
+  display:flex;justify-content:center;gap:7px;
 }
 .car-dots button{
   width:7px;height:7px;border-radius:50%;padding:0;cursor:pointer;
-  border:none;background:rgba(255,255,255,.45);transition:background .2s ease,width .2s ease;
+  border:none;background:rgba(255,255,255,.26);transition:background .2s ease,width .2s ease;
 }
 .car-dots button[aria-current="true"]{background:var(--ember);width:18px;border-radius:99px}
 .car-dots button:focus-visible{outline:2px solid var(--ember-hot);outline-offset:2px}
@@ -432,7 +431,7 @@ section{padding:var(--space-7) 0}
 .phone-frame img{width:100%;height:auto;display:block}
 @keyframes float-phone{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 .devices-caption{
-  margin-top:var(--space-3);text-align:center;color:var(--fg-dim);font-size:.85rem;
+  margin-top:var(--space-5);text-align:center;color:var(--fg-dim);font-size:.85rem;
 }
 @media(min-width:900px){
   .phone-frame{left:-7%;right:auto;bottom:-70px;width:24%;min-width:110px;max-width:150px}
@@ -861,8 +860,8 @@ Acesso imediato e vitalício · Garantia de 7 dias
           </div>
           <div class="car-viewport">
             <div class="car-track">
-              <img src="assets/caderno-rupturas.jpg" alt="Tela do Caderno da Ruptura mostrando a lista das 10 rupturas" loading="lazy" width="1300" height="730">
-              <img src="assets/caderno-conforto.jpg" alt="Tela do Caderno da Ruptura mostrando o exercício da Ruptura 01, Conforto" loading="lazy" width="1300" height="805">
+              <img src="assets/caderno-rupturas.jpg" alt="Tela do Caderno da Ruptura mostrando a lista das 10 rupturas" loading="lazy" width="1300" height="800">
+              <img src="assets/caderno-conforto.jpg" alt="Tela do Caderno da Ruptura mostrando o exercício da Ruptura 01, Conforto" loading="lazy" width="1300" height="800">
               <img src="assets/livro-goggins.jpg" alt="Tela do Caderno da Ruptura mostrando o livro aberto no capítulo 01, com a história de David Goggins" loading="lazy" width="1300" height="800">
               <img src="assets/livro-senna.jpg" alt="Tela do Caderno da Ruptura mostrando o livro aberto no capítulo 08, com a história de Ayrton Senna" loading="lazy" width="1300" height="800">
               <img src="assets/livro-poatan.jpg" alt="Tela do Caderno da Ruptura mostrando o livro aberto no capítulo 09, com a história de Alex Pereira Poatan" loading="lazy" width="1300" height="800">

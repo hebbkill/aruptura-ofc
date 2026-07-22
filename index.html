@@ -219,6 +219,30 @@ section{padding:var(--space-7) 0}
   font-size:clamp(1.3rem,3vw,2.1rem);line-height:1.15;
 }
 
+/* ---------- MECANISMO (seção da virada) ---------- */
+.mech-hit{
+  margin-top:var(--space-4);
+  font-family:var(--font-display);font-weight:800;text-transform:uppercase;
+  font-size:clamp(1.15rem,2.6vw,1.7rem);line-height:1.2;
+}
+.comfort-voice{
+  list-style:none;margin:var(--space-3) 0 0;
+  display:grid;gap:10px;
+}
+.comfort-voice li{
+  border-left:2px solid var(--border-warm-2);
+  padding:10px 0 10px 18px;
+  color:var(--fg-muted);font-style:italic;font-size:.97rem;
+}
+.mech-def{
+  margin-top:var(--space-5);
+  padding:var(--space-4);
+  background:var(--surface);border:1px solid var(--border-warm);
+  border-radius:var(--radius);
+  font-family:var(--font-display);font-weight:800;text-transform:uppercase;
+  font-size:clamp(1.1rem,2.4vw,1.55rem);line-height:1.25;
+}
+
 /* ---------- MÉTODO ---------- */
 .method-grid{display:grid;gap:var(--space-3);margin-top:var(--space-6)}
 @media(min-width:820px){.method-grid{grid-template-columns:repeat(3,1fr)}}
@@ -688,8 +712,22 @@ Acesso imediato e vitalício · Garantia de 7 dias
     <h2>O problema não é informação. Você já sabe <span class="grad-word">demais.</span></h2>
     <p style="margin-top:var(--space-4);color:var(--fg-muted)">Você já viu os vídeos. Salvou as frases. Sentiu o sangue ferver e pensou: <em>"agora vai".</em></p>
     <p style="margin-top:16px;color:var(--fg-muted)">Três dias depois, voltou pro mesmo lugar.</p>
-    <p style="margin-top:16px;color:var(--fg-muted)">Isso acontece porque você tenta mudar as ações carregando a mesma identidade: <em>"eu sou tímido", "eu sou procrastinador", "eu sempre desisto".</em> Rótulos que alguém te deu um dia — e você nunca questionou.</p>
-    <p style="margin-top:16px;color:var(--fg-muted)"><strong>Você não muda sabendo o que fazer. Você muda quando deixa de obedecer à versão de você que sempre desiste.</strong></p>
+    <p style="margin-top:16px;color:var(--fg-muted)">E cada vez que isso acontece fica uma marca. Não é só mais um projeto parado — é mais uma prova que a sua cabeça vai usar no julgamento seguinte. Hoje, quando você promete alguma coisa, uma parte de você já responde: <em>"tá falando agora; vamos ver quanto tempo dura."</em></p>
+    <p class="mech-hit">Você ainda convence os outros. Já não convence <span class="grad-word">a si mesmo.</span></p>
+    <p style="margin-top:16px;color:var(--fg-muted)">Esse é o lugar mais estranho pra se viver: você ainda sonha, ainda fala, ainda imagina uma vida maior — mas o seu comportamento começou a votar contra tudo isso. Quem olhar só pro que você faz, e não pro que você diz que quer, chega a uma conclusão bem diferente sobre você.</p>
+    <p style="margin-top:16px;color:var(--fg-muted)">E não é falta de força. É que o conforto nunca chega com uma placa escrita <em>"desista"</em>. Ele chega assim:</p>
+    <ul class="comfort-voice">
+      <li>"Você não dormiu bem. Começa amanhã."</li>
+      <li>"Ainda não tá bom o suficiente pra postar."</li>
+      <li>"Só cinco minutos no celular."</li>
+      <li>"Organiza mais um pouco antes de executar."</li>
+      <li>"Depois você compensa."</li>
+    </ul>
+    <p style="margin-top:16px;color:var(--fg-muted)">Toda frase dessas é razoável. Algumas são até verdade em certos dias. O problema nunca é uma delas sozinha — é quem passou a decidir todos os dias.</p>
+    <p style="margin-top:16px;color:var(--fg-muted)">E repara: você nem está confortável. Sente culpa, ansiedade, aquele desprezo por si mesmo. Mas é conhecido. <strong>A mente prefere uma dor familiar a uma exposição nova.</strong></p>
+    <p class="mech-def">A Ruptura é o nome desse instante em que você percebe o padrão <span class="grad-word">antes de obedecer a ele.</span></p>
+    <p style="margin-top:16px;color:var(--fg-muted)">Às vezes ela é enorme: sair de um ambiente, encerrar um ciclo. Na maioria das vezes começa pequena. Levantar quando o alarme toca. Gravar mesmo se sentindo estranho. Fazer aquela tarefa que você vem empurrando há uma semana.</p>
+    <p style="margin-top:16px;color:var(--fg-muted)">Uma ação isolada não transforma ninguém. Mas ela quebra a certeza de que você sempre vai fazer a mesma coisa. Repetida, ela vira evidência. E identidade, na prática, é muito menos o que você declara — e muito mais <strong>o conjunto de evidências que você aceita construir.</strong></p>
     <p style="margin-top:16px;color:var(--fg-muted)">É isso que A Ruptura treina.</p>
   </div>
 </section>
@@ -716,7 +754,7 @@ Acesso imediato e vitalício · Garantia de 7 dias
       <div class="method-card">
         <span class="method-num">O CADERNO</span>
         <h3>Escrever para romper</h3>
-        <p>O ambiente digital onde você escreve os exercícios de cada capítulo. Pensamento na cabeça se perde. Registrado, ele te confronta.</p>
+        <p>Eu já usei conteúdo sobre disciplina pra evitar exatamente o que eu precisava fazer: assistia, sentia que tava aprendendo, ganhava a sensação de movimento. Só que nada se movia. Por isso existe o caderno — é onde o capítulo para de ser sobre o Goggins e passa a apontar pra uma decisão sua.</p>
       </div>
     </div>
     <p class="method-close">Ler. Escrever. <span class="grad-word">Agir.</span></p>
@@ -847,10 +885,13 @@ Acesso imediato e vitalício · Garantia de 7 dias
         <p class="eyebrow">Quem escreve</p>
         <h2 style="margin-bottom:var(--space-3);font-size:clamp(1.6rem,3.4vw,2.4rem)">Hebber <span class="grad-word">Magalhães</span></h2>
         <p>Aos 25 anos, eu já tinha passado por mais de 23 empregos. Era o tímido que ensaiava a frase na cabeça e não falava. Que começava e abandonava. Que se escondia na tela e na nicotina — e mentia pra si mesmo pra doer menos.</p>
-        <p>Até perceber o pior: <strong>eu não acreditava mais na minha própria palavra.</strong></p>
-        <p>O que me reconstruiu foi o esporte. No judô, no boxe e no jiu-jitsu, aprendi na pele a suportar pressão, perder, repetir e continuar sem vontade. Vieram medalhas — mas o que ficou foi a mentalidade.</p>
+        <p>Não era fundo do poço de filme. Era pior de um jeito mais silencioso: eu sabia que podia mais e assistia aos dias passarem. Até perceber o pior: <strong>eu não acreditava mais na minha própria palavra.</strong></p>
+        <p>Um dia eu escrevi como seria a minha vida se nada mudasse. Me vi aos 30 anos num apartamento minúsculo no Cajueiro, pegando o celular assim que acordava, num emprego que eu não escolhi porque o tempo passou e eu não plantei nada. Corpo cansado, projetos mortos, minha mãe ainda me ajudando. Dez da noite, mais uma terça igual às outras. <strong>Aquilo não era poesia. Era medo.</strong></p>
+        <p>Foi mais ou menos nessa época que eu caí na história do David Goggins. E o que me pegou não foi a ultramaratona — eu não queria correr cem milhas. Foi outra coisa: existia uma distância absurda entre o homem que ele virou e o homem que ele dizia ter sido. Aí veio a pergunta que não saiu mais da minha cabeça: <em>o que aconteceu dentro da cabeça dele pra atravessar essa distância?</em></p>
+        <p>Passei a caçar isso em todo lugar — Senna, Kobe, Poatan, Jordan. Não o troféu. O instante anterior, quando ainda tinha dúvida e vontade de desistir.</p>
+        <p>O que me reconstruiu foi o esporte. No judô, no boxe e no jiu-jitsu, aprendi na pele a suportar pressão, perder, repetir e continuar sem vontade. Vieram medalhas — mas o que ficou foi a mentalidade. Só que eu cometia um erro: reconhecia essa lógica no tatame e ignorava no resto da vida. No treino, tomar uma queda não encerrava minha identidade. Fora dele, um fracasso virava prova de que eu "era assim mesmo".</p>
         <p>Foi ela que me fez encarar a câmera que eu tinha pavor, largar o julgamento alheio e romper, decisão por decisão, com a versão de mim que sempre desistia. Hoje meus vídeos alcançam milhares de pessoas. A Ruptura é esse processo — organizado pra você.</p>
-        <p class="author-quote">"Eu não escrevi esse livro porque venci. Escrevi porque conheço o lugar de onde você está tentando sair."</p>
+        <p class="author-quote">"Eu não escrevi esse livro porque venci todos os meus padrões. Escrevi porque continuo enfrentando muitos deles — e porque conheço o lugar de onde você está tentando sair."</p>
       </div>
     </div>
   </div>
@@ -946,7 +987,7 @@ Acesso imediato e vitalício · Garantia de 7 dias
       </div>
       <div class="faq-item">
         <button class="faq-q" id="faq-q2" aria-expanded="false" aria-controls="faq-a2" data-faq="transforma">Isso vai me transformar de verdade?<svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg></button>
-        <div class="faq-a" id="faq-a2" role="region" aria-labelledby="faq-q2"><p>Nenhum livro transforma ninguém magicamente — quem promete isso está mentindo. A Ruptura entrega clareza, confronto e direção. A transformação depende do que você fizer com isso. Por isso o caderno existe: pra virar prática.</p></div>
+        <div class="faq-a" id="faq-a2" role="region" aria-labelledby="faq-q2"><p>Nenhum livro e nenhum vídeo transformam ninguém magicamente — quem promete isso está mentindo. E deixa eu ser honesto sobre o que "mentalidade" significa aqui: ela não apaga a realidade. Não apaga o dinheiro que falta, o ambiente que pesa, o preconceito, o cansaço. A realidade existe e muitas vezes ela é injusta. Mentalidade é a relação que você constrói com o que já existe — é a resposta que você treina e a decisão que ainda cabe na margem que você tem. Às vezes essa margem é enorme, às vezes é pequena. Mas enquanto existir escolha, existe coisa que dá pra construir. É nisso que A Ruptura mexe, e é por isso que o caderno existe: pra virar prática.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" id="faq-q3" aria-expanded="false" aria-controls="faq-a3" data-faq="nao-terminei">Já comprei e-book e não terminei. Por que esse seria diferente?<svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg></button>
@@ -998,6 +1039,8 @@ Acesso imediato e vitalício · Garantia de 7 dias
         <p class="final-step">Em algum capítulo: <strong>"talvez eu não seja incapaz. Talvez eu esteja obedecendo a uma versão de mim que nunca questionei."</strong></p>
         <p class="final-step">No final: <strong>"eu não preciso mudar tudo hoje. Mas preciso parar de fugir da próxima decisão."</strong></p>
       </div>
+      <p style="margin-top:var(--space-4);color:var(--fg-muted)">Você quer uma transformação grande o suficiente pra contar pros outros. O que a sua vida está pedindo é uma decisão pequena o suficiente pra você repetir amanhã.</p>
+      <p style="margin-top:16px;color:var(--fg-muted)">Não promete que nunca mais vai fugir. Prova que dessa vez você percebeu a fuga <strong>antes</strong> de entregar a decisão.</p>
       <p class="final-quote">Você não precisa resolver a vida inteira hoje. Mas pode parar de fugir da <span class="grad-word">próxima decisão.</span></p>
       <a href="https://payfast.greenn.com.br/jvff2me/offer/4Zs1qS?ch_id=139946" class="btn" data-cta="final">
         Quero começar agora

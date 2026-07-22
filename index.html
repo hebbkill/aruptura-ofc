@@ -3,8 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>A Ruptura — Hebber Magalhães</title>
-<meta name="description" content="Um treinamento de mentalidade para sair do automático e voltar a conduzir a própria vida. Livro + aulas + caderno.">
+<title>A Ruptura — Treinamento de mentalidade | Hebber Magalhães</title>
+<meta name="description" content="Um treinamento de mentalidade para sair do automático e voltar a conduzir a própria vida. Livro digital + aulas em vídeo + Caderno da Ruptura. R$36, acesso imediato, garantia de 7 dias.">
+<link rel="canonical" href="https://www.aruptura.site/">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#000000">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="A Ruptura">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://www.aruptura.site/">
+<meta property="og:title" content="A Ruptura — Treinamento de mentalidade | Hebber Magalhães">
+<meta property="og:description" content="Você sabe o que precisa fazer. Então por que continua parado? Livro + aulas + Caderno da Ruptura para sair do automático.">
+<meta property="og:image" content="https://www.aruptura.site/assets/hebber.jpg">
+<meta property="og:image:alt" content="Hebber Magalhães, autor de A Ruptura">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="A Ruptura — Treinamento de mentalidade">
+<meta name="twitter:description" content="Você sabe o que precisa fazer. Então por que continua parado?">
+<meta name="twitter:image" content="https://www.aruptura.site/assets/hebber.jpg">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -105,6 +123,19 @@ strong{color:var(--fg);font-weight:600}
   min-height:44px;display:inline-flex;align-items:center;
 }
 .nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(255,138,61,.4)}
+.nav-brand:focus-visible,.nav-cta:focus-visible{outline:3px solid var(--ember-hot);outline-offset:3px}
+@media(max-width:600px){
+  .nav{top:10px;width:calc(100% - 20px);padding:6px 6px 6px 16px;gap:10px}
+  .nav-brand{font-size:.78rem;letter-spacing:.16em}
+  .nav-cta{font-size:.68rem;letter-spacing:.1em;padding:9px 14px;min-height:38px}
+}
+
+/* ---------- Linha de mecanismo (hero) ---------- */
+.hero-mech{
+  margin-top:var(--space-3);font-family:var(--font-display);font-weight:600;
+  font-size:clamp(.92rem,1.6vw,1.05rem);color:var(--fg-muted);
+}
+.hero-mech span{color:var(--ember);font-weight:800}
 
 /* ---------- Botões ---------- */
 .btn{
@@ -129,6 +160,8 @@ strong{color:var(--fg);font-weight:600}
 .btn-note svg{width:15px;height:15px;color:var(--ember)}
 
 /* ---------- Seções ---------- */
+/* Impede que o header fixo cubra o alvo ao navegar por âncora */
+section[id],[id]{scroll-margin-top:88px}
 section{padding:var(--space-7) 0}
 @media(min-width:768px){section{padding:var(--space-8) 0}}
 
@@ -338,6 +371,24 @@ section{padding:var(--space-7) 0}
 }
 
 /* ---------- 10 RUPTURAS ---------- */
+/* Lista recolhível no mobile, sempre aberta no desktop */
+.rupturas-summary{display:none}
+@media(max-width:899px){
+  .rupturas-summary{
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    cursor:pointer;list-style:none;margin-top:var(--space-4);
+    padding:18px 22px;border:1px solid var(--border-warm);border-radius:999px;
+    background:var(--surface-2);
+    font-family:var(--font-display);font-weight:700;font-size:.82rem;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--fg);
+  }
+  .rupturas-summary::-webkit-details-marker{display:none}
+  .rupturas-summary svg{width:18px;height:18px;color:var(--ember);transition:transform .25s ease;flex-shrink:0}
+  .rupturas-details[open] .rupturas-summary svg{transform:rotate(180deg)}
+  .rupturas-details[open] .rupturas-summary span::after{content:" (fechar)";opacity:.55}
+  .rupturas-details[open] .rupturas-wrap{margin-top:var(--space-3)}
+}
+.rupturas-summary:focus-visible{outline:3px solid var(--ember-hot);outline-offset:3px}
 .rupturas-wrap{
   background:var(--surface);
   border:1px solid var(--border-warm);
@@ -543,24 +594,45 @@ footer{
 footer a{color:var(--fg-dim);text-decoration:none}
 footer a:hover{color:var(--fg-muted)}
 </style>
+<noscript><style>.reveal{opacity:1!important;transform:none!important}.faq-a{max-height:none!important}</style></noscript>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Product",
+  "name":"A Ruptura",
+  "description":"Treinamento de mentalidade para sair do automático, composto por livro digital, aulas em vídeo e o Caderno da Ruptura (digital e imprimível).",
+  "image":"https://www.aruptura.site/assets/hebber.jpg",
+  "brand":{"@type":"Brand","name":"A Ruptura"},
+  "author":{"@type":"Person","name":"Hebber Magalhães"},
+  "offers":{
+    "@type":"Offer",
+    "url":"https://www.aruptura.site/",
+    "price":"36.00",
+    "priceCurrency":"BRL",
+    "availability":"https://schema.org/InStock",
+    "seller":{"@type":"Organization","name":"Greenn"}
+  }
+}
+</script>
 </head>
 <body>
 
 <!-- ============ NAVBAR ============ -->
 <nav class="nav" aria-label="Principal">
   <a href="#" class="nav-brand">A<span>·</span>RUPTURA</a>
-  <a href="https://payfast.greenn.com.br/jvff2me/offer/4Zs1qS?ch_id=139946" class="nav-cta">Quero começar</a>
+  <a href="https://payfast.greenn.com.br/jvff2me/offer/4Zs1qS?ch_id=139946" class="nav-cta" data-cta="sticky">Quero começar</a>
 </nav>
 
 <!-- ============ HERO ============ -->
 <header class="hero">
   <div class="hero-glow" aria-hidden="true"></div>
   <div class="container">
-    <p class="eyebrow">Treinamento de mentalidade · Livro + Aulas + Caderno</p>
+    <p class="eyebrow">Livro + Aulas + Caderno da Ruptura</p>
     <h1>Você sabe o que precisa fazer. Então por que continua <span class="grad-word">parado?</span></h1>
-    <p class="lead">Não é preguiça. Não é falta de força de vontade. É que ninguém te ensinou a romper com os padrões que te mantêm no automático. A Ruptura faz exatamente isso.</p>
+    <p class="lead">A Ruptura é um treinamento de mentalidade para quem cansou de entender o que precisa fazer e continuar obedecendo aos mesmos padrões.</p>
+    <p class="hero-mech"><span>Ler</span> para entender. <span>Escrever</span> para se enxergar. <span>Agir</span> para romper.</p>
     <div class="hero-actions">
-      <a href="https://payfast.greenn.com.br/jvff2me/offer/4Zs1qS?ch_id=139946" class="btn">
+      <a href="https://payfast.greenn.com.br/jvff2me/offer/4Zs1qS?ch_id=139946" class="btn" data-cta="hero">
         Quero começar agora
         <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
       </a>
@@ -568,7 +640,7 @@ footer a:hover{color:var(--fg-muted)}
     </div>
     <p class="hero-note">
       <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
-      Acesso imediato · Pagamento único · Garantia de 7 dias
+R$36 à vista · Acesso imediato e vitalício · Garantia de 7 dias
     </p>
   </div>
 </header>
@@ -723,6 +795,11 @@ footer a:hover{color:var(--fg-muted)}
         <p>Reorganizar o ambiente, fortalecer os pilares e assumir a dedicação como modo de vida.</p>
       </div>
     </div>
+    <details class="rupturas-details" open>
+      <summary class="rupturas-summary">
+        <span>Ver as 10 rupturas</span>
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg>
+      </summary>
     <div class="rupturas-wrap">
       <div class="ruptura-item"><span class="ruptura-num">01</span><div><h3>Conforto</h3><span class="ref">David Goggins</span><p>Você confundiu alívio com felicidade. O desconforto certo é o caminho de volta.</p></div></div>
       <div class="ruptura-item"><span class="ruptura-num">02</span><div><h3>Identidade Antiga</h3><span class="ref">Muhammad Ali</span><p>Pare de perguntar "o que preciso fazer?" e comece a perguntar "quem preciso me tornar?"</p></div></div>
@@ -732,9 +809,10 @@ footer a:hover{color:var(--fg-muted)}
       <div class="ruptura-item"><span class="ruptura-num">06</span><div><h3>Excesso</h3><span class="ref">Jiro Ono · Marco Aurélio</span><p>Adicionar mais virou sua forma de fugir do essencial. Menos ruído, mais direção.</p></div></div>
       <div class="ruptura-item"><span class="ruptura-num">07</span><div><h3>Fuga</h3><span class="ref">Michael Jordan</span><p>Procrastinação raramente é preguiça. É fuga. E fuga se encara.</p></div></div>
       <div class="ruptura-item"><span class="ruptura-num">08</span><div><h3>Ambiente</h3><span class="ref">Ayrton Senna</span><p>Você não controla tudo. Mas controla sua preparação, sua exposição e sua resposta.</p></div></div>
-      <div class="ruptura-item"><span class="ruptura-num">09</span><div><h3>Pilares</h3><span class="ref">Novak Djokovic</span><p>Nenhuma mudança se sustenta sobre uma vida desequilibrada.</p></div></div>
+      <div class="ruptura-item"><span class="ruptura-num">09</span><div><h3>Pilares</h3><span class="ref">Alex Pereira "Poatan"</span><p>Nenhuma mudança se sustenta sobre uma vida desequilibrada.</p></div></div>
       <div class="ruptura-item"><span class="ruptura-num">10</span><div><h3>Dedicação</h3><span class="ref">Kobe Bryant · Cafu</span><p>A melhor versão não é um lugar onde se chega. É construída nas decisões de todos os dias.</p></div></div>
     </div>
+    </details>
   </div>
 </section>
 
@@ -823,22 +901,22 @@ footer a:hover{color:var(--fg-muted)}
       <ul class="offer-items">
         <li>
           <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"/></svg>
-          <div><span class="item-name">O Livro da Ruptura</span><span class="item-desc">3 partes, 10 rupturas, histórias reais e as perguntas certas</span><span class="item-value">Valor real: R$47</span></div>
+          <div><span class="item-name">O Livro da Ruptura</span><span class="item-desc">Digital (PDF). 3 partes, 10 rupturas, histórias reais e as perguntas de confronto ao fim de cada capítulo.</span></div>
         </li>
         <li>
           <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z"/></svg>
-          <div><span class="item-name">As Aulas da Ruptura</span><span class="item-desc">Uma aula em vídeo aprofundada por ruptura</span><span class="item-value">Valor real: R$97</span></div>
+          <div><span class="item-name">As Aulas da Ruptura</span><span class="item-desc">Uma aula em vídeo por ruptura, na minha voz, aprofundando o que o capítulo levantou.</span></div>
         </li>
         <li>
           <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10"/></svg>
-          <div><span class="item-name">O Caderno da Ruptura</span><span class="item-desc">Caderno pontilhado digital + imprimível, com os exercícios de cada capítulo</span><span class="item-value">Valor real: R$37</span></div>
+          <div><span class="item-name">O Caderno da Ruptura</span><span class="item-desc">Ambiente digital para escrever + versão imprimível, com o exercício de cada ruptura e o histórico do que você registrou.</span></div>
         </li>
       </ul>
       <div class="offer-divider"></div>
-      <p class="offer-old">De R$181 por apenas</p>
+      <p class="offer-old">Os três juntos, à vista</p>
       <p class="offer-price"><sup>R$</sup>36</p>
-      <p class="offer-sub">Pagamento único. Sem mensalidade.</p>
-      <a href="https://payfast.greenn.com.br/jvff2me/offer/4Zs1qS?ch_id=139946" class="btn" style="width:100%">
+      <p class="offer-sub">Pagamento único. Sem mensalidade. Acesso vitalício.</p>
+      <a href="https://payfast.greenn.com.br/jvff2me/offer/4Zs1qS?ch_id=139946" class="btn" style="width:100%" data-cta="offer">
         Quero começar agora
         <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
       </a>
@@ -859,7 +937,7 @@ footer a:hover{color:var(--fg-muted)}
       </div>
       <div>
         <h2>Garantia de <span class="grad-word">7 dias</span></h2>
-        <p>Se não for pra você, me manda um e-mail dentro de 7 dias e devolvo 100% do dinheiro. Sem perguntas.</p>
+        <p>Entra, lê, assiste e usa o caderno. Se em 7 dias você sentir que não é pra você, responde o e-mail da Greenn pedindo reembolso — o valor volta integral, pelo mesmo meio de pagamento. Sem perguntas e sem ressentimento.</p>
       </div>
     </div>
   </div>
@@ -872,32 +950,48 @@ footer a:hover{color:var(--fg-muted)}
     <h2>Perguntas <span class="grad-word">frequentes</span></h2>
     <div class="faq-list">
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">Como vou receber o acesso?<svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg></button>
-        <div class="faq-a"><p>Por e-mail, logo após a confirmação do pagamento. Livro, aulas e caderno de uma vez.</p></div>
+        <button class="faq-q" id="faq-q1" aria-expanded="false" aria-controls="faq-a1" data-faq="acesso-como">Como vou receber o acesso?<svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg></button>
+        <div class="faq-a" id="faq-a1" role="region" aria-labelledby="faq-q1"><p>Por e-mail, logo após a confirmação do pagamento. Livro, aulas e caderno chegam de uma vez — não é liberação por semana.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">Isso vai me transformar de verdade?<svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg></button>
-        <div class="faq-a"><p>Nenhum livro transforma ninguém magicamente — quem promete isso está mentindo. A Ruptura entrega clareza, confronto e direção. A transformação depende do que você fizer com isso. Por isso o caderno existe: pra virar prática.</p></div>
+        <button class="faq-q" id="faq-q2" aria-expanded="false" aria-controls="faq-a2" data-faq="transforma">Isso vai me transformar de verdade?<svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg></button>
+        <div class="faq-a" id="faq-a2" role="region" aria-labelledby="faq-q2"><p>Nenhum livro transforma ninguém magicamente — quem promete isso está mentindo. A Ruptura entrega clareza, confronto e direção. A transformação depende do que você fizer com isso. Por isso o caderno existe: pra virar prática.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">Já comprei e-book e não terminei. Por que esse seria diferente?<svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg></button>
-        <div class="faq-a"><p>Porque cada capítulo abre com uma história que te puxa pra dentro e termina com perguntas sobre a sua vida — não sobre a do autor. Você não lê A Ruptura. Você se lê nela.</p></div>
+        <button class="faq-q" id="faq-q3" aria-expanded="false" aria-controls="faq-a3" data-faq="nao-terminei">Já comprei e-book e não terminei. Por que esse seria diferente?<svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg></button>
+        <div class="faq-a" id="faq-a3" role="region" aria-labelledby="faq-q3"><p>Porque cada capítulo abre com uma história que te puxa pra dentro e termina com perguntas sobre a sua vida — não sobre a do autor. Você não lê A Ruptura. Você se lê nela.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">O caderno é físico?<svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg></button>
-        <div class="faq-a"><p>É digital: você usa no tablet/computador ou imprime em casa. Vem com a metodologia explicada passo a passo.</p></div>
+        <button class="faq-q" id="faq-q4" aria-expanded="false" aria-controls="faq-a4" data-faq="curso-ou-livro">É curso, desafio ou livro?<svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg></button>
+        <div class="faq-a" id="faq-a4" role="region" aria-labelledby="faq-q4"><p>É um livro digital com aulas em vídeo e um caderno de exercícios. Não é desafio de X dias, não tem turma, não tem aula ao vivo e não tem prazo pra terminar. Você lê, assiste e escreve no seu ritmo.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">Funciona no celular?<svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg></button>
-        <div class="faq-a"><p>Sim. Livro, aulas e caderno funcionam em qualquer dispositivo.</p></div>
+        <button class="faq-q" id="faq-q5" aria-expanded="false" aria-controls="faq-a5" data-faq="tempo-acesso">Quanto tempo tenho de acesso?<svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg></button>
+        <div class="faq-a" id="faq-a5" role="region" aria-labelledby="faq-q5"><p>Acesso vitalício. Você paga uma vez e o material continua seu — sem mensalidade e sem renovação.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">Quais são as formas de pagamento?<svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg></button>
-        <div class="faq-a"><p>Pix, cartão ou boleto, com pagamento 100% seguro pela Greenn.</p></div>
+        <button class="faq-q" id="faq-q6" aria-expanded="false" aria-controls="faq-a6" data-faq="prazo">Preciso seguir um prazo?<svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg></button>
+        <div class="faq-a" id="faq-a6" role="region" aria-labelledby="faq-q6"><p>Não. A ordem das rupturas faz sentido de ponta a ponta, mas quem define o ritmo é você. Uma ruptura por semana já é um bom passo — e vale mais do que ler tudo em dois dias e não praticar nada.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">E se eu não gostar?<svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg></button>
-        <div class="faq-a"><p>7 dias de garantia total. Pediu, devolveu. Sem perguntas.</p></div>
+        <button class="faq-q" id="faq-q7" aria-expanded="false" aria-controls="faq-a7" data-faq="caderno-fisico">O caderno é físico?<svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg></button>
+        <div class="faq-a" id="faq-a7" role="region" aria-labelledby="faq-q7"><p>É digital: você escreve direto no ambiente online ou imprime a versão pontilhada em casa. Vem com a metodologia explicada passo a passo.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" id="faq-q8" aria-expanded="false" aria-controls="faq-a8" data-faq="celular">Funciona no celular?<svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg></button>
+        <div class="faq-a" id="faq-a8" role="region" aria-labelledby="faq-q8"><p>Sim. Livro, aulas e caderno funcionam no celular, no tablet e no computador.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" id="faq-q9" aria-expanded="false" aria-controls="faq-a9" data-faq="pagamento">Quais são as formas de pagamento?<svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg></button>
+        <div class="faq-a" id="faq-a9" role="region" aria-labelledby="faq-q9"><p>Pix, cartão ou boleto, com pagamento processado pela Greenn.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" id="faq-q10" aria-expanded="false" aria-controls="faq-a10" data-faq="garantia">Como funciona a garantia?<svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg></button>
+        <div class="faq-a" id="faq-a10" role="region" aria-labelledby="faq-q10"><p>Você tem 7 dias corridos a partir da compra. Se não for pra você, é só responder o e-mail de confirmação da Greenn pedindo o reembolso — o valor volta pelo mesmo meio de pagamento. Sem perguntas e sem burocracia.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" id="faq-q11" aria-expanded="false" aria-controls="faq-a11" data-faq="suporte">Tem suporte se eu tiver dúvida?<svg fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg></button>
+        <div class="faq-a" id="faq-a11" role="region" aria-labelledby="faq-q11"><p>Tem. Qualquer problema de acesso ou dúvida sobre o material, é só responder o e-mail que você recebe depois da compra que eu te respondo.</p></div>
       </div>
     </div>
   </div>
@@ -913,14 +1007,14 @@ footer a:hover{color:var(--fg-muted)}
         <p class="final-step">Em algum capítulo: <strong>"talvez eu não seja incapaz. Talvez eu esteja obedecendo a uma versão de mim que nunca questionei."</strong></p>
         <p class="final-step">No final: <strong>"eu não preciso mudar tudo hoje. Mas preciso parar de fugir da próxima decisão."</strong></p>
       </div>
-      <p class="final-quote">A próxima decisão está na sua frente. <span class="grad-word">Agora.</span></p>
-      <a href="https://payfast.greenn.com.br/jvff2me/offer/4Zs1qS?ch_id=139946" class="btn">
+      <p class="final-quote">Você não precisa resolver a vida inteira hoje. Mas pode parar de fugir da <span class="grad-word">próxima decisão.</span></p>
+      <a href="https://payfast.greenn.com.br/jvff2me/offer/4Zs1qS?ch_id=139946" class="btn" data-cta="final">
         Quero começar agora
         <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
       </a>
       <p class="btn-note">
         <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
-        Acesso imediato · R$36 · Garantia de 7 dias
+R$36 à vista · Acesso imediato e vitalício · Garantia de 7 dias
       </p>
     </div>
   </div>
@@ -933,20 +1027,102 @@ footer a:hover{color:var(--fg-muted)}
 </footer>
 
 <script>
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
-}, { threshold: 0.1 });
-document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+/* ---------- Reveal (com fallback: se algo falhar, o conteúdo aparece) ---------- */
+(function () {
+  const els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(el => el.classList.add('in'));
+    return;
+  }
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  els.forEach(el => obs.observe(el));
+  // Rede de segurança: nada pode ficar invisível por mais de 3s
+  setTimeout(() => els.forEach(el => el.classList.add('in')), 3000);
+})();
 
+/* ---------- Analytics: dispara só se GA4/dataLayer existir. Sem dados pessoais. ---------- */
+function track(name, params) {
+  try {
+    if (typeof window.gtag === 'function') window.gtag('event', name, params || {});
+    else if (Array.isArray(window.dataLayer)) window.dataLayer.push(Object.assign({ event: name }, params || {}));
+  } catch (e) { /* analytics nunca pode quebrar a página */ }
+}
+
+/* ---------- Preserva UTMs e parâmetros de campanha rumo ao checkout ---------- */
+(function () {
+  const KEEP = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','utm_id','gclid','fbclid','ttclid','src','sck'];
+  const incoming = new URLSearchParams(location.search);
+  const carry = new URLSearchParams();
+  KEEP.forEach(k => { const v = incoming.get(k); if (v) carry.set(k, v); });
+  if (![...carry].length) return;
+  document.querySelectorAll('a[href*="payfast.greenn.com.br"]').forEach(a => {
+    try {
+      const u = new URL(a.href);
+      carry.forEach((v, k) => { if (!u.searchParams.has(k)) u.searchParams.set(k, v); });
+      a.href = u.toString();
+    } catch (e) { /* href inválido: mantém como está */ }
+  });
+})();
+
+/* ---------- Clique nos CTAs (um evento por clique) ---------- */
+document.querySelectorAll('a[data-cta]').forEach(a => {
+  a.addEventListener('click', () => {
+    const placement = a.getAttribute('data-cta');
+    track('cta_click', { placement: placement });
+    if (a.href.indexOf('payfast.greenn.com.br') !== -1) {
+      track('checkout_click', { placement: placement });
+    }
+  });
+});
+
+/* ---------- FAQ acessível ---------- */
 document.querySelectorAll('.faq-item').forEach(item => {
   const btn = item.querySelector('.faq-q');
   const ans = item.querySelector('.faq-a');
   btn.addEventListener('click', () => {
     const open = item.classList.toggle('open');
-    btn.setAttribute('aria-expanded', open);
+    btn.setAttribute('aria-expanded', String(open));
     ans.style.maxHeight = open ? ans.scrollHeight + 'px' : '0';
+    if (open) track('faq_open', { question_id: btn.dataset.faq || '' });
   });
 });
+// Reabre corretamente se a janela mudar de tamanho
+window.addEventListener('resize', () => {
+  document.querySelectorAll('.faq-item.open .faq-a').forEach(a => { a.style.maxHeight = a.scrollHeight + 'px'; });
+});
+
+/* ---------- 10 rupturas: recolhe no mobile (sem JS, continua aberta) ---------- */
+(function () {
+  const det = document.querySelector('.rupturas-details');
+  if (!det) return;
+  const mq = window.matchMedia('(max-width:899px)');
+  const apply = () => { det.open = !mq.matches; };
+  apply();
+  mq.addEventListener('change', apply);
+  det.addEventListener('toggle', () => { if (det.open && mq.matches) track('rupturas_open'); });
+})();
+
+/* ---------- Scroll depth: 25 / 50 / 75 / 90, uma vez cada ---------- */
+(function () {
+  const marks = [25, 50, 75, 90];
+  const fired = new Set();
+  let ticking = false;
+  function check() {
+    ticking = false;
+    const doc = document.documentElement;
+    const scrollable = doc.scrollHeight - window.innerHeight;
+    if (scrollable <= 0) return;
+    const pct = ((window.scrollY || doc.scrollTop) / scrollable) * 100;
+    marks.forEach(m => {
+      if (pct >= m && !fired.has(m)) { fired.add(m); track('scroll_depth', { percent: m }); }
+    });
+    if (fired.size === marks.length) window.removeEventListener('scroll', onScroll);
+  }
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(check); } }
+  window.addEventListener('scroll', onScroll, { passive: true });
+})();
 </script>
 </body>
 </html>

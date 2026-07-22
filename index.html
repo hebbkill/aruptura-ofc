@@ -290,52 +290,10 @@ section{padding:var(--space-7) 0}
   display:grid;gap:var(--space-5);margin-top:var(--space-6);
   align-items:center;
 }
-@media(min-width:900px){.products-grid{grid-template-columns:0.8fr 1.2fr;gap:var(--space-6)}}
+@media(min-width:900px){.products-grid{grid-template-columns:1fr 1fr;gap:var(--space-7)}}
 
 /* -- Livro -- */
-.book-mockup{perspective:1400px;max-width:300px;margin:0 auto}
-@media(min-width:900px){.book-mockup{margin:0}}
-.book-mockup-inner{
-  position:relative;transform-style:preserve-3d;
-  transition:transform .5s cubic-bezier(.16,1,.3,1);
-  transform:rotateY(-14deg) rotateX(3deg);
-}
-.book-mockup:hover .book-mockup-inner{transform:rotateY(-6deg) rotateX(1deg) scale(1.02)}
-.book-pages{
-  position:absolute;top:6px;right:-9px;bottom:6px;width:16px;
-  background:repeating-linear-gradient(180deg,#e9e4d8 0px,#dfd9c8 2px,#e9e4d8 4px);
-  border-radius:0 4px 4px 0;
-  box-shadow:2px 0 6px rgba(0,0,0,.35);
-  transform:translateZ(-6px);
-}
-.book-cover{
-  position:relative;aspect-ratio:2/3;border-radius:6px 10px 10px 6px;
-  overflow:hidden;
-  background:
-    linear-gradient(100deg,rgba(0,0,0,.88) 0%,rgba(0,0,0,.82) 42%,rgba(0,0,0,.15) 62%,rgba(0,0,0,.05) 100%),
-    url('assets/capa-textura.jpg') center/cover no-repeat;
-  box-shadow:14px 18px 46px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.06);
-  padding:24px 22px;display:flex;flex-direction:column;
-  color:#F4F1EA;
-}
-.book-eyebrow{
-  font-family:var(--font-display);font-weight:700;font-size:.6rem;
-  letter-spacing:.28em;text-transform:uppercase;color:var(--coral);margin-bottom:14px;
-}
-.book-title{
-  font-family:var(--font-display);font-weight:900;text-transform:uppercase;
-  font-size:1.9rem;line-height:1;letter-spacing:-.01em;color:#F7F5F0;
-}
-.book-rule{width:38px;height:3px;background:var(--coral);margin:14px 0}
-.book-tagline{font-size:.72rem;line-height:1.45;color:#D8D3C6;font-weight:500}
-.book-quote{
-  margin-top:auto;font-style:italic;font-size:.68rem;line-height:1.5;
-  color:#B8B2A2;padding-top:18px;
-}
-.book-byline{
-  margin-top:14px;font-family:var(--font-display);font-weight:700;
-  font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:#F4F1EA;
-}
+
 
 /* -- Caderno (devices) -- */
 .devices-mockup{position:relative;padding-bottom:8px}
@@ -361,6 +319,22 @@ section{padding:var(--space-7) 0}
   color:var(--fg-dim);letter-spacing:.02em;
 }
 .browser-frame > img{width:100%;height:auto;display:block;border-radius:0 0 14px 14px}
+
+/* Flipbook: o livro aberto de verdade */
+.flipbook-frame{
+  position:relative;
+  border-radius:14px;overflow:visible;
+  box-shadow:0 30px 70px rgba(0,0,0,.55);
+  transition:transform .4s ease,box-shadow .4s ease;
+}
+.devices-mockup:hover .flipbook-frame{transform:translateY(-4px);box-shadow:0 40px 90px rgba(0,0,0,.65)}
+.flipbook-frame > img{width:100%;height:auto;display:block;border-radius:14px}
+/* vinco central, pra ler como livro e não como imagem chapada */
+.flipbook-frame::after{
+  content:"";position:absolute;top:0;bottom:0;left:50%;width:26px;
+  transform:translateX(-50%);pointer-events:none;border-radius:14px;
+  background:linear-gradient(90deg,transparent,rgba(0,0,0,.30) 42%,rgba(0,0,0,.38) 50%,rgba(0,0,0,.30) 58%,transparent);
+}
 .phone-frame{
   position:absolute;right:14px;left:auto;bottom:-60px;width:22%;min-width:90px;max-width:130px;
   border-radius:22px;overflow:hidden;background:#111;
@@ -376,15 +350,16 @@ section{padding:var(--space-7) 0}
 .phone-frame img{width:100%;height:auto;display:block}
 @keyframes float-phone{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 .devices-caption{
-  margin-top:150px;text-align:center;color:var(--fg-dim);font-size:.85rem;
+  margin-top:118px;text-align:center;color:var(--fg-dim);font-size:.85rem;
 }
 @media(min-width:900px){
   .phone-frame{left:-7%;right:auto;bottom:-70px;width:24%;min-width:110px;max-width:150px}
+  /* cada celular pende para o lado de fora da sua coluna, sem se encontrarem no meio */
+  .browser-frame .phone-frame{right:-7%;left:auto}
   .devices-caption{margin-top:220px}
 }
 @media(prefers-reduced-motion:reduce){
   .phone-frame{animation:none}
-  .book-mockup-inner{transition:none}
 }
 
 /* ---------- 10 RUPTURAS ---------- */
@@ -769,18 +744,15 @@ Acesso imediato e vitalício · Garantia de 7 dias
       <h2>Isso não é teoria. <span class="grad-word">É material real.</span></h2>
     </div>
     <div class="products-grid">
-      <div class="book-mockup">
-        <div class="book-mockup-inner">
-          <div class="book-pages" aria-hidden="true"></div>
-          <div class="book-cover">
-            <p class="book-eyebrow">Livro digital</p>
-            <h3 class="book-title">A<br>RUPTURA</h3>
-            <div class="book-rule"></div>
-            <p class="book-tagline">Um treinamento de mentalidade<br>para sair do automático</p>
-            <p class="book-quote">"Ler para entender.<br>Escrever para se enxergar.<br>Agir para romper."</p>
-            <p class="book-byline">HEBBER MAGALHÃES</p>
+      <div class="devices-mockup">
+        <div class="flipbook-frame">
+          <img src="assets/flipbook-spread.jpg" alt="Livro A Ruptura aberto em flipbook no capítulo 08, A Ruptura do Ambiente, com a história de Ayrton Senna" loading="lazy" width="1290" height="1002">
+          <div class="phone-frame">
+            <div class="phone-notch"></div>
+            <img src="assets/flipbook-phone.jpg" alt="O mesmo livro aberto no celular, com uma página virando" loading="lazy" width="393" height="852">
           </div>
         </div>
+        <p class="devices-caption">O livro abre em flipbook — e vira a página de verdade</p>
       </div>
       <div class="devices-mockup">
         <div class="browser-frame">

@@ -158,6 +158,22 @@ section[id],[id]{scroll-margin-top:88px}
 section{padding:var(--space-7) 0}
 @media(min-width:768px){section{padding:var(--space-8) 0}}
 
+/* ---------- Seções claras (ritmo) ---------- */
+.section-light{
+  background:#F1ECE3;
+  --fg:#1B1712;
+  --fg-muted:#544D45;
+  --fg-dim:#8C8377;
+  --surface:#FBF8F2;
+  --surface-2:#FFFFFF;
+  --border-warm:rgba(120,80,40,.16);
+  --border-warm-2:rgba(120,80,40,.32);
+  --glow:rgba(255,122,61,.10);
+  color:var(--fg);
+}
+.section-light h1,.section-light h2,.section-light h3,.section-light strong{color:var(--fg)}
+.section-light .part-card{background:#FFFFFF}
+
 .reveal{opacity:0;transform:translateY(32px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
 .reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){
@@ -180,8 +196,23 @@ section{padding:var(--space-7) 0}
     radial-gradient(ellipse 40% 34% at 72% 55%,rgba(255,77,77,.12),transparent 70%);
 }
 .hero .container{position:relative}
-.hero h1{max-width:15ch;margin-bottom:var(--space-4)}
-.hero .lead{max-width:540px;margin-bottom:var(--space-5)}
+.hero-grid{display:grid;gap:var(--space-5);align-items:center}
+@media(min-width:900px){.hero-grid{grid-template-columns:1.08fr .92fr;gap:var(--space-6)}}
+.hero-photo{position:relative}
+@media(max-width:899px){.hero-photo{max-width:380px;margin-top:var(--space-4)}}
+.hero-photo img{
+  width:100%;height:auto;display:block;border-radius:var(--radius);
+  border:1px solid var(--border-warm-2);
+  box-shadow:0 40px 90px rgba(0,0,0,.6);
+  -webkit-mask-image:none;
+}
+.hero-photo::after{
+  content:"";position:absolute;inset:-30px -20px -20px -30px;z-index:-1;pointer-events:none;
+  background:radial-gradient(ellipse 70% 60% at 60% 40%,rgba(255,138,61,.28),transparent 70%);
+}
+.hero h1{max-width:15ch;margin-bottom:var(--space-4);font-size:clamp(2.2rem,4.4vw,3.7rem)}
+@media(min-width:900px){.hero-copy h1{max-width:none}}
+.hero .lead{max-width:520px;margin-bottom:var(--space-5)}
 .hero-actions{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
 .hero-note{margin-top:var(--space-3);font-size:.85rem;color:var(--fg-dim);display:flex;align-items:center;gap:8px}
 .hero-note svg{width:15px;height:15px;color:var(--ember)}
@@ -700,20 +731,27 @@ footer a:hover{color:var(--fg-muted)}
 <header class="hero">
   <div class="hero-glow" aria-hidden="true"></div>
   <div class="container">
-    <p class="eyebrow">Pra quem sabe que poderia mais — e tá cansado de só saber</p>
-    <h1>Você sabe o que precisa fazer. Então por que continua <span class="grad-word">parado?</span></h1>
-    <p class="lead">Não é preguiça. Não é falta de força de vontade. Todo dia acontece uma negociação silenciosa dentro da sua cabeça — e você vem perdendo ela sem nem perceber. A Ruptura te ensina a enxergar essa negociação a tempo de virar o jogo.</p>
-    <div class="hero-actions">
-      <a href="https://payfast.greenn.com.br/jvff2me/offer/4Zs1qS?ch_id=139946" class="btn" data-cta="hero">
-        Quero começar agora
-        <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
-      </a>
-      <a href="#metodo" class="btn btn-ghost">Conhecer o método</a>
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Pra quem sabe que poderia mais — e tá cansado de só saber</p>
+        <h1>Você sabe o que precisa fazer. Então por que continua <span class="grad-word">parado?</span></h1>
+        <p class="lead">Existe uma negociação silenciosa acontecendo na sua cabeça todo dia — e você vem perdendo ela sem perceber. A Ruptura te ensina a enxergá-la a tempo de virar o jogo.</p>
+        <div class="hero-actions">
+          <a href="https://payfast.greenn.com.br/jvff2me/offer/4Zs1qS?ch_id=139946" class="btn" data-cta="hero">
+            Quero começar agora
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+          </a>
+          <a href="#metodo" class="btn btn-ghost">Conhecer o método</a>
+        </div>
+        <p class="hero-note">
+          <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+          Acesso imediato e vitalício · Garantia de 7 dias
+        </p>
+      </div>
+      <div class="hero-photo">
+        <img src="assets/hebber.jpg" alt="Hebber Magalhães" width="640" height="799" fetchpriority="high">
+      </div>
     </div>
-    <p class="hero-note">
-      <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
-Acesso imediato e vitalício · Garantia de 7 dias
-    </p>
   </div>
 </header>
 
@@ -766,55 +804,45 @@ Acesso imediato e vitalício · Garantia de 7 dias
 <section style="padding-top:0">
   <div class="container-narrow reveal">
     <p class="eyebrow">Por que você continua igual</p>
-    <h2>O problema não é informação. Você já sabe <span class="grad-word">demais.</span></h2>
-    <p style="margin-top:var(--space-4);color:var(--fg-muted)">Você já viu os vídeos. Salvou as frases. Sentiu o sangue ferver e pensou: <em>"agora vai".</em></p>
-    <p style="margin-top:16px;color:var(--fg-muted)">Três dias depois, voltou pro mesmo lugar.</p>
-    <p style="margin-top:16px;color:var(--fg-muted)">E cada vez que isso acontece fica uma marca. Não é só mais um projeto parado — é mais uma prova que a sua cabeça vai usar no julgamento seguinte. Hoje, quando você promete alguma coisa, uma parte de você já responde: <em>"tá falando agora; vamos ver quanto tempo dura."</em></p>
+    <h2>O problema nunca foi <span class="grad-word">informação.</span></h2>
+    <p style="margin-top:var(--space-4);color:var(--fg-muted)">Você já viu os vídeos. Salvou as frases. Sentiu o sangue ferver e pensou <em>"agora vai".</em> Três dias depois, voltou pro mesmo lugar.</p>
     <p class="mech-hit">Você ainda convence os outros. Já não convence <span class="grad-word">a si mesmo.</span></p>
-    <p style="margin-top:16px;color:var(--fg-muted)">Esse é o lugar mais estranho pra se viver: você ainda sonha, ainda fala, ainda imagina uma vida maior — mas o seu comportamento começou a votar contra tudo isso. Quem olhar só pro que você faz, e não pro que você diz que quer, chega a uma conclusão bem diferente sobre você.</p>
-    <p style="margin-top:16px;color:var(--fg-muted)">E não é falta de força. É que o conforto nunca chega com uma placa escrita <em>"desista"</em>. Ele chega assim:</p>
+    <p style="margin-top:16px;color:var(--fg-muted)">Não é falta de força. É que o conforto nunca chega com uma placa escrita <em>"desista"</em>. Ele chega assim:</p>
     <ul class="comfort-voice">
       <li>"Você não dormiu bem. Começa amanhã."</li>
-      <li>"Ainda não tá bom o suficiente pra postar."</li>
       <li>"Só cinco minutos no celular."</li>
-      <li>"Organiza mais um pouco antes de executar."</li>
       <li>"Depois você compensa."</li>
     </ul>
-    <p style="margin-top:16px;color:var(--fg-muted)">Toda frase dessas é razoável. Algumas são até verdade em certos dias. O problema nunca é uma delas sozinha — é quem passou a decidir todos os dias.</p>
     <p class="mech-hit">Isso tem nome. Chama-se <span class="grad-word">A Negociação.</span></p>
-    <p style="margin-top:16px;color:var(--fg-muted)">Toda vez que o desconforto aparece, a sua mente te oferece um acordo que parece justo — e você aceita antes mesmo de perceber que aceitou. Não é falta de disciplina. É que ninguém nunca te mostrou que essa negociação estava acontecendo. Você passou anos lutando contra a força de vontade — o inimigo errado — enquanto o verdadeiro fechava acordo com você todo santo dia, no escuro.</p>
-    <p style="margin-top:16px;color:var(--fg-muted)">E repara: você nem está confortável. Sente culpa, ansiedade, aquele desprezo por si mesmo. Mas é conhecido. <strong>A mente prefere uma dor familiar a uma exposição nova.</strong></p>
-    <p style="margin-top:16px;color:var(--fg-muted)">Aqui está a virada: você não vence A Negociação com mais força de vontade. Você já tentou mil vezes — e não durou. Vence quando aprende a percebê-la a tempo, no segundo antes de obedecer. Esse instante tem nome:</p>
-    <p class="mech-def">A Ruptura é o nome desse instante em que você percebe o padrão <span class="grad-word">antes de obedecer a ele.</span></p>
-    <p style="margin-top:16px;color:var(--fg-muted)">Às vezes ela é enorme: sair de um ambiente, encerrar um ciclo. Na maioria das vezes começa pequena. Levantar quando o alarme toca. Gravar mesmo se sentindo estranho. Fazer aquela tarefa que você vem empurrando há uma semana.</p>
-    <p style="margin-top:16px;color:var(--fg-muted)">Uma ação isolada não transforma ninguém. Mas ela quebra a certeza de que você sempre vai fazer a mesma coisa. Repetida, ela vira evidência. E identidade, na prática, é muito menos o que você declara — e muito mais <strong>o conjunto de evidências que você aceita construir.</strong></p>
-    <p style="margin-top:16px;color:var(--fg-muted)">É isso que A Ruptura treina.</p>
+    <p style="margin-top:16px;color:var(--fg-muted)">Todo dia a sua mente te oferece um acordo que parece justo — e você aceita antes de perceber. A culpa não é sua: ninguém nunca te mostrou que essa negociação existia. Você lutou contra a força de vontade, o inimigo errado.</p>
+    <p class="mech-def">A Ruptura é o instante em que você percebe o acordo <span class="grad-word">antes de fechá-lo.</span></p>
+    <p style="margin-top:16px;color:var(--fg-muted)">Uma vez só já quebra a certeza de que você sempre faz a mesma coisa. Repetida, vira evidência. E identidade é isso: <strong>o conjunto de provas que você aceita construir.</strong></p>
   </div>
 </section>
 
 <!-- ============ O MÉTODO ============ -->
-<section id="metodo" style="padding-top:0">
+<section id="metodo" class="section-light">
   <div class="container reveal">
     <div style="max-width:780px">
       <p class="eyebrow">O método</p>
       <h2>O que é <span class="grad-word">A Ruptura?</span></h2>
-      <p class="lead" style="margin-top:var(--space-3)">As três peças não são conteúdo pra você consumir. São o treino pra ganhar A Negociação: enxergar o acordo chegando e responder com uma prova de que, dessa vez, quem decide é você. Cada uma trabalha uma parte do mesmo movimento:</p>
+      <p class="lead" style="margin-top:var(--space-3)">Não é conteúdo pra consumir. São três peças que treinam um só movimento: enxergar A Negociação chegando e responder com uma prova de que, dessa vez, quem decide é você.</p>
     </div>
     <div class="method-grid">
       <div class="method-card">
         <span class="method-num">O LIVRO</span>
         <h3>Ler para entender</h3>
-        <p>10 rupturas, 3 partes. Cada capítulo abre com a história real de um atleta — Goggins, Kobe, Senna — e termina com as perguntas que fazem o capítulo ser sobre você. Direto, sem enrolação.</p>
+        <p>138 páginas, 10 rupturas. Cada capítulo abre com a história de um cara que virou o jogo — e fecha com a pergunta que dói.</p>
       </div>
       <div class="method-card">
         <span class="method-num">AS AULAS</span>
         <h3>Ver para se enxergar</h3>
-        <p>Dez aulas em vídeo, uma pra cada ruptura, aprofundando o que o capítulo levantou. Nas redes eu tenho um minuto pra falar de um assunto desses. Aqui eu tenho o tempo que ele realmente pede.</p>
+        <p>10 aulas em vídeo, uma por ruptura. Nas redes eu tenho 1 minuto; aqui, o tempo que o assunto pede.</p>
       </div>
       <div class="method-card">
         <span class="method-num">O CADERNO</span>
         <h3>Escrever para romper</h3>
-        <p>Eu já usei conteúdo sobre disciplina pra evitar exatamente o que eu precisava fazer: assistia, sentia que tava aprendendo, ganhava a sensação de movimento. Só que nada se movia. Por isso existe o caderno — é onde o capítulo para de ser sobre o Goggins e passa a apontar pra uma decisão sua.</p>
+        <p>O ambiente digital onde o capítulo deixa de ser sobre o Goggins e vira uma decisão sua.</p>
       </div>
     </div>
     <p class="method-close">Ler. Escrever. <span class="grad-word">Agir.</span></p>
@@ -822,7 +850,7 @@ Acesso imediato e vitalício · Garantia de 7 dias
 </section>
 
 <!-- ============ PRODUTOS (mockups) ============ -->
-<section class="products" style="padding-top:0">
+<section class="products section-light" style="padding-top:0">
   <div class="container reveal">
     <div style="max-width:780px">
       <p class="eyebrow">Na prática</p>
@@ -882,7 +910,7 @@ Acesso imediato e vitalício · Garantia de 7 dias
 </section>
 
 <!-- ============ AS 3 PARTES + 10 RUPTURAS ============ -->
-<section style="padding-top:0">
+<section>
   <div class="container reveal">
     <div style="max-width:780px">
       <p class="eyebrow">Por dentro do livro</p>
@@ -928,7 +956,7 @@ Acesso imediato e vitalício · Garantia de 7 dias
 </section>
 
 <!-- ============ PARA QUEM É ============ -->
-<section style="padding-top:0">
+<section class="section-light">
   <div class="container reveal">
     <div style="max-width:780px">
       <p class="eyebrow">Pra quem é</p>
@@ -959,28 +987,18 @@ Acesso imediato e vitalício · Garantia de 7 dias
 </section>
 
 <!-- ============ AUTOR ============ -->
-<section style="padding-top:0">
-  <div class="container reveal">
-    <div class="author-wrap">
-      <div class="author-photo"><img src="assets/hebber.jpg" alt="Hebber Magalhães" loading="lazy" width="960" height="1200"></div>
-      <div class="author-text">
-        <p class="eyebrow">Quem escreve</p>
-        <h2 style="margin-bottom:var(--space-3);font-size:clamp(1.6rem,3.4vw,2.4rem)">Hebber <span class="grad-word">Magalhães</span></h2>
-        <p>Aos 25 anos, eu já tinha passado por mais de 23 empregos. Era o tímido que ensaiava a frase na cabeça e não falava. Que começava e abandonava. Que se escondia na tela e na nicotina — e mentia pra si mesmo pra doer menos.</p>
-        <p>Não era fundo do poço de filme. Era pior de um jeito mais silencioso: eu sabia que podia mais e assistia aos dias passarem. Até perceber o pior: <strong>eu não acreditava mais na minha própria palavra.</strong></p>
-        <p>Um dia eu escrevi como seria a minha vida se nada mudasse. Me vi aos 30 anos num apartamento minúsculo no Cajueiro, pegando o celular assim que acordava, num emprego que eu não escolhi porque o tempo passou e eu não plantei nada. Corpo cansado, projetos mortos, minha mãe ainda me ajudando. Dez da noite, mais uma terça igual às outras. <strong>Aquilo não era poesia. Era medo.</strong></p>
-        <p>Foi mais ou menos nessa época que eu caí na história do David Goggins. E o que me pegou não foi a ultramaratona — eu não queria correr cem milhas. Foi outra coisa: existia uma distância absurda entre o homem que ele virou e o homem que ele dizia ter sido. Aí veio a pergunta que não saiu mais da minha cabeça: <em>o que aconteceu dentro da cabeça dele pra atravessar essa distância?</em></p>
-        <p>Passei a caçar isso em todo lugar — Senna, Kobe, Poatan, Jordan. Não o troféu. O instante anterior, quando ainda tinha dúvida e vontade de desistir.</p>
-        <p>O que me reconstruiu foi o esporte. No judô, no boxe e no jiu-jitsu, aprendi na pele a suportar pressão, perder, repetir e continuar sem vontade. Vieram medalhas — mas o que ficou foi a mentalidade. Só que eu cometia um erro: reconhecia essa lógica no tatame e ignorava no resto da vida. No treino, tomar uma queda não encerrava minha identidade. Fora dele, um fracasso virava prova de que eu "era assim mesmo".</p>
-        <p>Foi ela que me fez encarar a câmera que eu tinha pavor, largar o julgamento alheio e romper, decisão por decisão, com a versão de mim que sempre desistia. Hoje meus vídeos alcançam milhares de pessoas. A Ruptura é esse processo — organizado pra você.</p>
-        <p class="author-quote">"Eu não escrevi esse livro porque venci todos os meus padrões. Escrevi porque continuo enfrentando muitos deles — e porque conheço o lugar de onde você está tentando sair."</p>
-      </div>
-    </div>
+<section class="section-light">
+  <div class="container-narrow reveal" style="text-align:center">
+    <p class="eyebrow center">Quem escreve</p>
+    <h2>Hebber <span class="grad-word">Magalhães</span></h2>
+    <p style="margin-top:var(--space-4);color:var(--fg-muted)">Aos 25 anos eu já tinha passado por mais de 23 empregos. Tímido, começava tudo e abandonava, me escondia na tela e na nicotina. Até perceber o pior: <strong>eu não acreditava mais na minha própria palavra.</strong></p>
+    <p style="margin-top:16px;color:var(--fg-muted)">O que me reconstruiu não foi um vídeo motivacional. Foi estudar a cabeça de quem virou o jogo — Goggins, Senna, Kobe, Poatan — e treinar, no esporte e no papel, a mentalidade da pessoa que eu dizia querer ser. A Ruptura é esse processo, organizado pra você.</p>
+    <p class="author-quote" style="margin:var(--space-5) auto 0;max-width:600px">"Eu não escrevi esse livro porque venci todos os meus padrões. Escrevi porque conheço o lugar de onde você está tentando sair."</p>
   </div>
 </section>
 
 <!-- ============ DEPOIMENTOS ============ -->
-<section style="padding-top:0">
+<section>
   <div class="container reveal">
     <div style="max-width:780px">
       <p class="eyebrow">Não é só você</p>
@@ -1016,15 +1034,15 @@ Acesso imediato e vitalício · Garantia de 7 dias
       <ul class="offer-items">
         <li>
           <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z"/></svg>
-          <div><span class="item-name">As Aulas da Ruptura</span><span class="item-desc">10 aulas em vídeo, uma pra cada ruptura, com mais de 5 minutos cada — montadas com as cenas que a gente já sentiu: filme, anime, luta, desenho antigo. É a mesma conversa que eu faço nas redes, só que com o tempo que o assunto pede.</span><span class="item-value">Valor real: R$97</span></div>
+          <div><span class="item-name">As Aulas da Ruptura</span><span class="item-desc">10 aulas em vídeo, uma por ruptura, com mais de 5 min cada. Feitas com cenas de filme, anime e luta — no tempo que o assunto pede.</span><span class="item-value">Valor real: R$97</span></div>
         </li>
         <li>
           <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"/></svg>
-          <div><span class="item-name">O Livro da Ruptura</span><span class="item-desc">138 páginas divididas em 3 partes e 10 rupturas. Cada capítulo abre com a história de um cara que virou o jogo e fecha com a pergunta que dói. Direto e escrito no jeito que a gente fala.</span><span class="item-value">Valor real: R$47</span></div>
+          <div><span class="item-name">O Livro da Ruptura</span><span class="item-desc">138 páginas, 3 partes, 10 rupturas. Histórias reais que fecham com a pergunta que dói — no jeito que a gente fala.</span><span class="item-value">Valor real: R$47</span></div>
         </li>
         <li>
           <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10"/></svg>
-          <div><span class="item-name">O Caderno da Ruptura</span><span class="item-desc">O ambiente digital onde você escreve. É a extensão do livro: cada exercício conversa direto com o capítulo que você acabou de ler. Lá dentro o livro também abre em flipbook, com as páginas virando de verdade.</span><span class="item-value">Valor real: R$37</span></div>
+          <div><span class="item-name">O Caderno da Ruptura</span><span class="item-desc">O ambiente digital onde você escreve. Cada exercício conversa com o capítulo que você acabou de ler — e o livro abre nele em flipbook, folheando de verdade.</span><span class="item-value">Valor real: R$37</span></div>
         </li>
       </ul>
       <div class="offer-divider"></div>

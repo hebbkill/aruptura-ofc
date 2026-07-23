@@ -628,7 +628,15 @@ section{padding:var(--space-7) 0}
   -webkit-text-fill-color:transparent;
 }
 .offer-price sup{font-size:.32em;top:-1.8em;-webkit-text-fill-color:var(--ember)}
-.offer-sub{color:var(--fg-muted);font-size:.94rem;margin-bottom:var(--space-5)}
+.pay-badge{
+  display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center;
+  margin:0 auto var(--space-3);padding:10px 18px;border-radius:999px;
+  background:rgba(255,138,61,.12);border:1px solid var(--border-warm-2);
+  font-size:.92rem;color:var(--fg-muted);
+}
+.pay-badge strong{color:var(--ember-hot);font-weight:700}
+.pay-badge span{opacity:.6;font-size:.82rem;text-transform:uppercase;letter-spacing:.08em}
+.offer-sub{color:var(--fg-dim);font-size:.88rem;margin-bottom:var(--space-5)}
 
 /* ---------- GARANTIA ---------- */
 .guarantee-box{
@@ -1049,7 +1057,8 @@ footer a:hover{color:var(--fg-muted)}
       <div class="offer-divider"></div>
       <p class="offer-old">De R$181 por apenas</p>
       <p class="offer-price"><sup>R$</sup>36</p>
-      <p class="offer-sub">à vista no Pix — ou em até 6× de R$6,73 no cartão.<br>Pagamento único. Sem mensalidade. Acesso vitalício.</p>
+      <p class="pay-badge"><strong>à vista no Pix</strong> <span>ou</span> <strong>6× de R$6,73</strong> no cartão</p>
+      <p class="offer-sub">Pagamento único. Sem mensalidade. Acesso vitalício.</p>
       <p style="color:var(--fg-dim);font-size:.9rem;line-height:1.5;margin-bottom:var(--space-4);max-width:440px;margin-left:auto;margin-right:auto">Eu podia cobrar o preço de um curso. Cobro o de um lanche de propósito: assim o dinheiro nunca vira a sua próxima desculpa. A única barreira real entre você e isso é a decisão.</p>
       <a href="https://payfast.greenn.com.br/jvff2me/offer/4Zs1qS?ch_id=139946" class="btn" style="width:100%" data-cta="offer">
         Quero começar agora

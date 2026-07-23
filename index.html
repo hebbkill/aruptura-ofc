@@ -577,8 +577,12 @@ section{padding:var(--space-7) 0}
 }
 
 /* ---------- DEPOIMENTOS ---------- */
-.testi-grid{display:grid;gap:var(--space-3);margin-top:var(--space-6);align-items:start}
-@media(min-width:768px){.testi-grid{grid-template-columns:repeat(2,1fr)}}
+/* cada card não passa da largura nativa das imagens (~373px) para não perder qualidade */
+.testi-grid{
+  display:grid;gap:var(--space-3);margin-top:var(--space-6);align-items:start;
+  justify-content:center;
+  grid-template-columns:repeat(auto-fit,minmax(230px,340px));
+}
 .testi-card{
   background:var(--surface);border:1px solid rgba(255,255,255,.08);
   border-radius:var(--radius);overflow:hidden;
@@ -586,6 +590,8 @@ section{padding:var(--space-7) 0}
 }
 .testi-card:hover{border-color:var(--border-warm-2);transform:translateY(-4px)}
 .testi-card img{width:100%;height:auto;display:block}
+/* comentário largo: ocupa a linha inteira, mas capado na resolução nativa */
+.testi-wide{max-width:680px;margin:var(--space-3) auto 0}
 .testi-note{text-align:center;color:var(--fg-dim);font-size:.84rem;margin-top:var(--space-4)}
 
 /* ---------- OFERTA ---------- */
@@ -1010,9 +1016,9 @@ footer a:hover{color:var(--fg-muted)}
       <div class="testi-card">
         <img src="assets/depo3-crop.jpg" alt="Mensagem sobre encontrar uma página que ajudou numa fase difícil da vida" loading="lazy" width="373" height="210">
       </div>
-      <div class="testi-card">
-        <img src="assets/depo4-crop.jpg" alt="Mensagem: Rapaz eu gosto dos seus conteúdos, me ajuda muito, obrigado por você existir" loading="lazy" width="900" height="234">
-      </div>
+    </div>
+    <div class="testi-card testi-wide">
+      <img src="assets/depo4-crop.jpg" alt="Mensagem: Rapaz eu gosto dos seus conteúdos, me ajuda muito, obrigado por você existir" loading="lazy" width="900" height="234">
     </div>
     <p class="testi-note">Comentários reais recebidos nas redes do Hebber.</p>
   </div>
